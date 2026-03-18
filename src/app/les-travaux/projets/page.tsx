@@ -7,7 +7,6 @@ import {
   Search, Filter, ChevronRight, ChevronDown, LayoutGrid, Table,
   ArrowRight, ArrowUpDown, Download,
 } from 'lucide-react'
-import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { ProgressBar } from '@/components/ui/ProgressBar'
@@ -127,21 +126,6 @@ const PROJECTS: Project[] = [
 
 function getAxisById(id: string) {
   return STRATEGIC_AXES.find(a => a.id === id)
-}
-
-function getTrlLabel(level: number): string {
-  const labels: Record<number, string> = {
-    1: 'Principes de base',
-    2: 'Concept formulé',
-    3: 'Preuve de concept',
-    4: 'Validation labo',
-    5: 'Validation env. pertinent',
-    6: 'Prototype env. pertinent',
-    7: 'Prototype opérationnel',
-    8: 'Système qualifié',
-    9: 'Système opérationnel',
-  }
-  return labels[level] || `TRL ${level}`
 }
 
 // ========================================

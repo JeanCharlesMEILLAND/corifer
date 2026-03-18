@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -23,12 +23,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-    setMobileSubmenu(null);
-  }, [pathname]);
-
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
@@ -40,6 +34,11 @@ export default function Header() {
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileOpen(false);
+    setMobileSubmenu(null);
+  }, []);
 
   const handleMouseEnter = (label: string) => {
     if (dropdownTimeout.current) {
@@ -165,7 +164,7 @@ export default function Header() {
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/30 lg:hidden"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeMobileMenu}
           aria-hidden="true"
         />
       )}
@@ -182,7 +181,7 @@ export default function Header() {
           <button
             type="button"
             className="rounded-md p-2 text-[#0F1B3D] hover:bg-[#0F1B3D]/5 transition-colors"
-            onClick={() => setMobileOpen(false)}
+            onClick={closeMobileMenu}
             aria-label="Fermer le menu"
           >
             <X className="h-5 w-5" />
@@ -228,6 +227,7 @@ export default function Header() {
                     <div className="ml-3 border-l-2 border-[#0F1B3D]/10 pl-3 py-1">
                       <Link
                         href={item.href}
+                        onClick={closeMobileMenu}
                         className="block rounded-md px-3 py-2 text-sm text-[#0F1B3D]/60 hover:text-[#0F1B3D] hover:bg-[#0F1B3D]/5 transition-colors"
                       >
                         Tout voir
@@ -236,6 +236,7 @@ export default function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
+                          onClick={closeMobileMenu}
                           className={`block rounded-md px-3 py-2 text-sm transition-colors ${
                             pathname === child.href
                               ? 'text-[#0F1B3D] font-medium bg-[#0F1B3D]/5'
@@ -251,6 +252,7 @@ export default function Header() {
               ) : (
                 <Link
                   href={item.href}
+                  onClick={closeMobileMenu}
                   className={`block rounded-md px-3 py-3 text-sm font-medium transition-colors ${
                     isActive(item)
                       ? 'text-[#0F1B3D] bg-[#0F1B3D]/5'

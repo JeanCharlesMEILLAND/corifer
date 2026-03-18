@@ -4,7 +4,6 @@ import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { FileText, Download, Calendar, Filter, ChevronRight } from 'lucide-react'
-import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 

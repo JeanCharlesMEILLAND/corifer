@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
-import { MOTION_PRESETS } from '@/lib/constants'
+// constants imported as needed
 
 // ========================================
 // Types
