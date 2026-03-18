@@ -492,7 +492,7 @@ export default function LeCoriferPage() {
                       <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
                     </div>
                     {/* Number */}
-                    <span className="absolute top-5 right-5 text-4xl font-extrabold text-[#0F1B3D]/5">
+                    <span className="absolute top-4 right-5 text-5xl font-black text-[#2563EB]/15 leading-none">
                       0{index + 1}
                     </span>
                     {/* Content */}
