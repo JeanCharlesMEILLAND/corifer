@@ -32,7 +32,7 @@ export default function Footer() {
                   alt="CORIFER"
                   width={180}
                   height={60}
-                  className=""
+                  className="brightness-0 invert"
                   style={{ height: 'auto' }}
                 />
               </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
 
             {/* Column 2: Navigation */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-6">
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-6">
                 Navigation
               </h3>
               <ul className="space-y-3">
@@ -85,7 +85,7 @@ export default function Footer() {
 
             {/* Column 3: Contact + Key contacts */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-6">
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-6">
                 Contact
               </h3>
               <ul className="space-y-4">
@@ -117,7 +117,7 @@ export default function Footer() {
 
               {/* Key contacts */}
               <div className="mt-8 pt-6 border-t border-white/10">
-                <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-4">
+                <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-4">
                   Contacts clés
                 </h4>
                 <ul className="space-y-3">
@@ -126,7 +126,7 @@ export default function Footer() {
                       <p className="text-sm font-medium text-white/90">
                         {contact.name}
                       </p>
-                      <p className="text-xs text-white/60">{contact.role}</p>
+                      <p className="text-xs text-white/70">{contact.role}</p>
                     </li>
                   ))}
                 </ul>
@@ -139,13 +139,13 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
             <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-              <p className="text-xs text-white/60">
+              <p className="text-xs text-white/70">
                 &copy; {currentYear} {SITE_CONFIG.name}. Tous droits r&eacute;serv&eacute;s.
               </p>
               <div className="flex items-center gap-6">
                 <Link
                   href="/mentions-legales"
-                  className="group text-xs text-white/60 transition-colors duration-200 hover:text-white"
+                  className="group text-xs text-white/70 transition-colors duration-200 hover:text-white"
                 >
                   <span className="relative">
                     Mentions l&eacute;gales
@@ -154,7 +154,7 @@ export default function Footer() {
                 </Link>
                 <Link
                   href="/politique-de-confidentialite"
-                  className="group text-xs text-white/60 transition-colors duration-200 hover:text-white"
+                  className="group text-xs text-white/70 transition-colors duration-200 hover:text-white"
                 >
                   <span className="relative">
                     Politique de confidentialit&eacute;
