@@ -627,13 +627,14 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            className="bg-[#0F1B3D] px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center"
+            className="px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center"
+            style={{ backgroundColor: '#0F1B3D' }}
           >
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-extrabold text-white leading-snug tracking-tight max-w-md">
+              <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-extrabold leading-snug tracking-tight max-w-md" style={{ color: '#ffffff' }}>
                 Vous avez un projet d&apos;innovation ferroviaire&nbsp;?
               </h2>
-              <p className="mt-4 text-gray-300 text-base leading-relaxed max-w-sm">
+              <p className="mt-4 text-base leading-relaxed max-w-sm" style={{ color: '#D1D5DB' }}>
                 Le CORIFER accompagne les acteurs de la filière dans le
                 montage et le financement de projets de recherche.
               </p>
@@ -646,15 +647,17 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-[#2563EB] px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center justify-center md:justify-start"
+            className="px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center justify-center md:justify-start"
+            style={{ backgroundColor: '#2563EB' }}
           >
             <div className="text-center md:text-left">
-              <p className="text-white text-base mb-6 font-medium">
+              <p className="text-base mb-6 font-medium" style={{ color: '#ffffff' }}>
                 Prenons contact pour en discuter.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 bg-white text-[#2563EB] font-bold px-8 py-4 rounded-sm text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg shadow-black/10"
+                className="inline-flex items-center gap-3 font-bold px-8 py-4 rounded-sm text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg shadow-black/10"
+                style={{ backgroundColor: '#ffffff', color: '#2563EB' }}
               >
                 Contactez-nous
                 <ArrowRight className="w-5 h-5" />
