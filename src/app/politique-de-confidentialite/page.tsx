@@ -31,7 +31,7 @@ export default function PolitiqueConfidentialitePage() {
           <h1 className="text-2xl md:text-3xl font-bold text-[#0F1B3D] tracking-tight">
             Politique de confidentialité
           </h1>
-          <p className="mt-2 text-base text-gray-500">
+          <p className="mt-2 text-base text-gray-600">
             Protection de vos données personnelles
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function PolitiqueConfidentialitePage() {
             </p>
 
             <div className="mt-12 pt-6 border-t border-gray-100">
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-500">
                 Dernière mise à jour : mars 2026
               </p>
             </div>

@@ -147,7 +147,7 @@ export default function ContactPage() {
             <h1 className="text-3xl md:text-4xl font-bold text-[#0F1B3D] tracking-tight">
               Contact
             </h1>
-            <p className="mt-2 text-base md:text-lg text-gray-500">
+            <p className="mt-2 text-base md:text-lg text-gray-600">
               Une question ? Un projet ? Contactez-nous.
             </p>
           </motion.div>
@@ -355,22 +355,22 @@ export default function ContactPage() {
 
               {/* Key Contacts */}
               <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">
                   Contacts clés
                 </h3>
                 <div className="space-y-4">
                   {/* Lionel Pujol */}
                   <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
                     <p className="text-sm font-semibold text-[#0F1B3D]">Lionel Pujol</p>
-                    <p className="text-xs text-gray-500 mt-0.5">Chef de projet industrie ferroviaire</p>
-                    <p className="text-xs text-gray-400">DGE - Ministère de l&apos;Économie</p>
+                    <p className="text-xs text-gray-600 mt-0.5">Chef de projet industrie ferroviaire</p>
+                    <p className="text-xs text-gray-500">DGE - Ministère de l&apos;Économie</p>
                   </div>
 
                   {/* Jean-Jacques Mogoro */}
                   <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
                     <p className="text-sm font-semibold text-[#0F1B3D]">Jean-Jacques Mogoro</p>
-                    <p className="text-xs text-gray-500 mt-0.5">Secrétaire CORIFER &amp; Directeur Pôle Industrie</p>
-                    <p className="text-xs text-gray-400">FIF</p>
+                    <p className="text-xs text-gray-600 mt-0.5">Secrétaire CORIFER &amp; Directeur Pôle Industrie</p>
+                    <p className="text-xs text-gray-500">FIF</p>
                     <a
                       href="tel:0766453000"
                       className="inline-flex items-center gap-1.5 mt-2 text-xs text-[#2563EB] hover:underline"
@@ -384,7 +384,7 @@ export default function ContactPage() {
 
               {/* Social Links */}
               <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">
                   Suivez-nous
                 </h3>
                 <div className="flex items-center gap-3">
@@ -413,7 +413,7 @@ export default function ContactPage() {
 
               {/* Map Placeholder */}
               <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">
                   Nous trouver
                 </h3>
                 <div className="relative rounded-xl overflow-hidden h-56 bg-gradient-to-br from-[#0F1B3D]/5 via-[#2563EB]/10 to-[#10B981]/10 border border-gray-200">
@@ -422,7 +422,7 @@ export default function ContactPage() {
                       <MapPin className="w-6 h-6 text-[#2563EB]" />
                     </div>
                     <p className="text-sm font-medium text-[#0F1B3D]">Carte interactive</p>
-                    <p className="text-xs text-gray-500 mt-1">60 av. Anatole France, 92300 Levallois-Perret</p>
+                    <p className="text-xs text-gray-600 mt-1">60 av. Anatole France, 92300 Levallois-Perret</p>
                   </div>
                   {/* Decorative grid pattern */}
                   <div

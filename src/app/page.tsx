@@ -346,7 +346,7 @@ export default function Home() {
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]" />
                 </div>
 
-                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#2563EB]/70 mb-4 block">
+                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#2563EB] mb-4 block">
                   Stratégie 2023 &mdash; 2030
                 </span>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-[#0F1B3D] mb-3 leading-tight max-w-md">
@@ -381,7 +381,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#10B981]/70 mb-4 block">
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#10B981] mb-4 block">
                     Projets & Recherche
                   </span>
                   <h3 className="text-xl font-extrabold text-[#0F1B3D] mb-2 leading-tight">
@@ -404,7 +404,7 @@ export default function Home() {
                   href="/accompagnement"
                   className="group block h-full bg-[#FAF5FF] hover:bg-[#F3E8FF] transition-colors duration-300 p-8 rounded-sm relative overflow-hidden"
                 >
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B5CF6]/70 mb-4 block">
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B5CF6] mb-4 block">
                     Soutien & Financement
                   </span>
                   <h3 className="text-xl font-extrabold text-[#0F1B3D] mb-2 leading-tight">

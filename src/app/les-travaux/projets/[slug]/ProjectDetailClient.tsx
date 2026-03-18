@@ -329,7 +329,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <ol className="flex items-center gap-2 text-sm text-white/60">
+              <ol className="flex items-center gap-2 text-sm text-white/80">
                 <li><Link href="/" className="hover:text-white transition-colors">Accueil</Link></li>
                 <li aria-hidden="true"><ChevronRight className="w-4 h-4" /></li>
                 <li><Link href="/les-travaux" className="hover:text-white transition-colors">Les travaux</Link></li>
@@ -350,7 +350,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               >
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F1B3D] tracking-tight leading-tight">
                   {project.acronym}
-                  <span className="text-gray-400 font-normal"> – </span>
+                  <span className="text-gray-500 font-normal"> – </span>
                   <span className="text-gray-600 font-bold">{project.title}</span>
                 </h1>
                 <div className="flex flex-wrap items-center gap-3 mt-4">
@@ -376,25 +376,25 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           <AnimatedSection>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Statut</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Statut</span>
                 <Badge variant={project.status === 'en-cours' ? 'success' : 'default'} size="md" className="self-start">
                   {project.status === 'en-cours' ? 'En cours' : 'Terminé'}
                 </Badge>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">TRL actuel</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">TRL actuel</span>
                 <Badge variant="info" size="md" className="self-start">TRL {project.trl}</Badge>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Lancement</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Lancement</span>
                 <div className="flex items-center gap-2 text-sm font-medium text-[#0F1B3D]">
-                  <CalendarDays className="w-4 h-4 text-gray-400" />{project.startDate}
+                  <CalendarDays className="w-4 h-4 text-gray-500" />{project.startDate}
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Fin prévue</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Fin prévue</span>
                 <div className="flex items-center gap-2 text-sm font-medium text-[#0F1B3D]">
-                  <CalendarDays className="w-4 h-4 text-gray-400" />{project.endDate}
+                  <CalendarDays className="w-4 h-4 text-gray-500" />{project.endDate}
                 </div>
               </div>
             </div>
@@ -409,7 +409,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <Clock className="w-5 h-5 text-[#2563EB]" />
                 </div>
                 <div>
-                  <span className="text-xs text-gray-500">Durée prévue</span>
+                  <span className="text-xs text-gray-600">Durée prévue</span>
                   <p className="text-sm font-semibold text-[#0F1B3D]">{project.duration}</p>
                 </div>
               </div>
@@ -418,10 +418,10 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <Euro className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <span className="text-xs text-gray-500">Budget total</span>
+                  <span className="text-xs text-gray-600">Budget total</span>
                   <p className="text-sm font-semibold text-[#0F1B3D]">
                     {project.budgetTotal}
-                    <span className="text-xs text-gray-400 font-normal ml-1">(dont {project.budgetCorifer} soutenus par CORIFER)</span>
+                    <span className="text-xs text-gray-500 font-normal ml-1">(dont {project.budgetCorifer} soutenus par CORIFER)</span>
                   </p>
                 </div>
               </div>
@@ -430,7 +430,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <Award className="w-5 h-5 text-amber-600" />
                 </div>
                 <div>
-                  <span className="text-xs text-gray-500">Financement</span>
+                  <span className="text-xs text-gray-600">Financement</span>
                   <div className="flex flex-wrap gap-1.5 mt-1">
                     {project.fundingDevices.map(fd => (
                       <Badge key={fd.name} variant="warning" size="sm">{fd.name} – {fd.detail}</Badge>
@@ -497,7 +497,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-[#2563EB]">Porteur du projet</span>
                   <h3 className="text-lg font-bold text-[#0F1B3D]">{project.lead.name}</h3>
-                  <p className="text-sm text-gray-500">{project.lead.org}</p>
+                  <p className="text-sm text-gray-600">{project.lead.org}</p>
                 </div>
               </div>
             </div>
@@ -516,10 +516,10 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB]/20 hover:shadow-md transition-all duration-200"
                 >
                   <div className="w-12 h-12 mx-auto rounded-lg bg-gray-100 flex items-center justify-center mb-3">
-                    <span className="text-sm font-bold text-gray-400">{partner.name.substring(0, 2).toUpperCase()}</span>
+                    <span className="text-sm font-bold text-gray-500">{partner.name.substring(0, 2).toUpperCase()}</span>
                   </div>
                   <h4 className="text-sm font-semibold text-[#0F1B3D] leading-snug mb-1">{partner.name}</h4>
-                  <span className="text-xs text-gray-400">{partner.type}</span>
+                  <span className="text-xs text-gray-500">{partner.type}</span>
                 </motion.div>
               ))}
             </div>
@@ -564,13 +564,13 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   {project.publications.map((pub, i) => (
                     <div key={i} className="p-4 rounded-xl bg-blue-50/50 border border-blue-100">
                       <h4 className="text-sm font-semibold text-[#0F1B3D] mb-1 leading-snug">{pub.title}</h4>
-                      <p className="text-xs text-gray-500 italic">{pub.venue}</p>
+                      <p className="text-xs text-gray-700 italic">{pub.venue}</p>
                     </div>
                   ))}
                 </div>
               ) : (
                 <div className="p-6 rounded-xl border-2 border-dashed border-gray-200 text-center">
-                  <p className="text-sm text-gray-400">Aucune publication à ce stade</p>
+                  <p className="text-sm text-gray-500">Aucune publication à ce stade</p>
                 </div>
               )}
             </AnimatedSection>
@@ -636,7 +636,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                     className="bg-white rounded-xl border border-gray-200 p-5 text-center"
                   >
                     <p className="text-2xl md:text-3xl font-extrabold text-[#2563EB] tracking-tight">{ind.value}</p>
-                    <p className="mt-1 text-xs text-gray-500 font-medium">{ind.label}</p>
+                    <p className="mt-1 text-xs text-gray-700 font-medium">{ind.label}</p>
                   </motion.div>
                 ))}
               </div>
@@ -665,7 +665,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <span className="text-lg font-bold">{project.contact.name.split(' ').map(n => n[0]).join('').substring(0, 2)}</span>
                 </div>
                 <h4 className="text-lg font-semibold">{project.contact.name}</h4>
-                <p className="text-sm text-white/60 mb-4">{project.contact.role}</p>
+                <p className="text-sm text-white/80 mb-4">{project.contact.role}</p>
                 <a href={`mailto:${project.contact.email}`} className="inline-flex items-center gap-2 text-sm font-medium text-[#60A5FA] hover:text-white transition-colors">
                   <Mail className="w-4 h-4" />{project.contact.email}
                 </a>
@@ -685,7 +685,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 </div>
               ) : (
                 <div className="p-6 rounded-xl border-2 border-dashed border-gray-200 text-center">
-                  <p className="text-sm text-gray-400">Aucun lien externe disponible</p>
+                  <p className="text-sm text-gray-500">Aucun lien externe disponible</p>
                 </div>
               )}
               <div className="mt-6">
@@ -705,11 +705,11 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                     ) : (
                       <Play className="w-6 h-6 text-gray-300 group-hover:text-[#2563EB]/40 transition-colors" />
                     )}
-                    <span className="text-xs text-gray-400">{item <= 2 ? 'Photo' : 'Vidéo'}</span>
+                    <span className="text-xs text-gray-500">{item <= 2 ? 'Photo' : 'Vidéo'}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 mt-3 text-center">Contenu multimédia à venir</p>
+              <p className="text-xs text-gray-500 mt-3 text-center">Contenu multimédia à venir</p>
             </AnimatedSection>
           </div>
         </div>
@@ -723,7 +723,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#2563EB]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
               <div className="relative z-10">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Vous souhaitez en savoir plus sur ce projet ?</h2>
-                <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
+                <p className="text-white/80 max-w-xl mx-auto mb-8 leading-relaxed">
                   Contactez l&apos;équipe du CORIFER pour échanger sur le projet {project.acronym} ou découvrir comment participer à nos travaux de recherche et d&apos;innovation.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

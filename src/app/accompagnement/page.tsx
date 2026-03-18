@@ -298,7 +298,7 @@ export default function AccompagnementPage() {
               </svg>
             </div>
             <p className="text-gray-600 font-medium mb-1">Aucun appel en cours actuellement</p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Les prochains appels a projets seront publies ici. Abonnez-vous a notre newsletter pour etre informe.
             </p>
           </motion.div>

@@ -366,7 +366,7 @@ export default function ActualitesPage() {
               className={`p-3 transition-colors ${
                 viewMode === 'grid'
                   ? 'bg-[#2563EB] text-white'
-                  : 'bg-white text-gray-500 hover:bg-gray-50'
+                  : 'bg-white text-gray-600 hover:bg-gray-50'
               }`}
               aria-label="Affichage en grille"
               aria-pressed={viewMode === 'grid'}
@@ -386,7 +386,7 @@ export default function ActualitesPage() {
               className={`p-3 transition-colors ${
                 viewMode === 'list'
                   ? 'bg-[#2563EB] text-white'
-                  : 'bg-white text-gray-500 hover:bg-gray-50'
+                  : 'bg-white text-gray-600 hover:bg-gray-50'
               }`}
               aria-label="Affichage en liste"
               aria-pressed={viewMode === 'list'}
@@ -425,7 +425,7 @@ export default function ActualitesPage() {
                   </svg>
                 </div>
                 <p className="text-gray-600 text-lg">Aucun resultat trouve.</p>
-                <p className="text-gray-500 text-sm mt-1">Essayez de modifier vos criteres de recherche.</p>
+                <p className="text-gray-600 text-sm mt-1">Essayez de modifier vos criteres de recherche.</p>
               </motion.div>
             ) : viewMode === 'grid' ? (
               <motion.div

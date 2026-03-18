@@ -177,7 +177,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <h3 className="text-lg font-bold text-[#0F1B3D] group-hover:text-[#2563EB] transition-colors leading-snug">
             {project.acronym}
           </h3>
-          <p className="text-sm text-gray-500 mt-0.5">{project.title}</p>
+          <p className="text-sm text-gray-600 mt-0.5">{project.title}</p>
         </div>
 
         {/* Badges row */}
@@ -214,7 +214,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         {/* Budget */}
         <div className="flex items-center gap-2 mb-3 text-sm">
-          <span className="text-gray-500">Budget :</span>
+          <span className="text-gray-600">Budget :</span>
           <span className="font-semibold text-[#0F1B3D]">{project.budget}</span>
         </div>
 
@@ -226,8 +226,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         {/* Partners */}
-        <p className="text-xs text-gray-400 mb-5 flex-1">
-          <span className="font-medium text-gray-500">Partenaires :</span>{' '}
+        <p className="text-xs text-gray-500 mb-5 flex-1">
+          <span className="font-medium text-gray-600">Partenaires :</span>{' '}
           {project.partners.join(', ')}
         </p>
 
@@ -314,7 +314,7 @@ export default function ProjetsPage() {
           <h1 className="text-2xl md:text-3xl font-bold text-[#0F1B3D] tracking-tight">
             Projets de recherche et d&apos;innovation
           </h1>
-          <p className="mt-1.5 text-base text-gray-500 max-w-2xl">
+          <p className="mt-1.5 text-base text-gray-600 max-w-2xl">
             Découvrez les projets soutenus et coordonnés par le CORIFER dans le cadre de la feuille de route 2023-2030
           </p>
         </div>
@@ -326,7 +326,7 @@ export default function ProjetsPage() {
           {/* Filter bar */}
           <AnimatedSection>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-10">
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-5">
                 <Filter className="w-4 h-4" />
                 Filtres
               </div>
@@ -396,7 +396,7 @@ export default function ProjetsPage() {
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-all ${
                       viewMode === 'grid'
                         ? 'bg-white text-[#2563EB] shadow-sm'
-                        : 'text-gray-500 hover:text-gray-700'
+                        : 'text-gray-600 hover:text-gray-700'
                     }`}
                   >
                     <LayoutGrid className="w-4 h-4" />
@@ -408,7 +408,7 @@ export default function ProjetsPage() {
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-all ${
                       viewMode === 'table'
                         ? 'bg-white text-[#2563EB] shadow-sm'
-                        : 'text-gray-500 hover:text-gray-700'
+                        : 'text-gray-600 hover:text-gray-700'
                     }`}
                   >
                     <Table className="w-4 h-4" />
@@ -422,7 +422,7 @@ export default function ProjetsPage() {
           {/* Results count + Export */}
           <AnimatedSection delay={0.1}>
             <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-600">
                 {filteredProjects.length} projet{filteredProjects.length > 1 ? 's' : ''} trouvé{filteredProjects.length > 1 ? 's' : ''}
               </p>
               {viewMode === 'table' && (
@@ -505,7 +505,7 @@ export default function ProjetsPage() {
                             <td className="px-4 py-3">
                               <div>
                                 <span className="font-semibold text-[#0F1B3D]">{project.acronym}</span>
-                                <p className="text-xs text-gray-500 mt-0.5">{project.title}</p>
+                                <p className="text-xs text-gray-600 mt-0.5">{project.title}</p>
                               </div>
                             </td>
                             <td className="px-4 py-3">
@@ -585,8 +585,8 @@ export default function ProjetsPage() {
               <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-gray-50 flex items-center justify-center">
                 <Search className="w-7 h-7 text-gray-400" />
               </div>
-              <p className="text-gray-500 font-medium mb-1">Aucun projet correspondant</p>
-              <p className="text-sm text-gray-400">
+              <p className="text-gray-600 font-medium mb-1">Aucun projet correspondant</p>
+              <p className="text-sm text-gray-600">
                 Essayez de modifier vos filtres ou votre recherche.
               </p>
             </motion.div>

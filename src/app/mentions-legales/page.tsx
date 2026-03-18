@@ -31,7 +31,7 @@ export default function MentionsLegalesPage() {
           <h1 className="text-2xl md:text-3xl font-bold text-[#0F1B3D] tracking-tight">
             Mentions légales
           </h1>
-          <p className="mt-2 text-base text-gray-500">
+          <p className="mt-2 text-base text-gray-600">
             Informations légales du site corifer.fr
           </p>
         </div>
