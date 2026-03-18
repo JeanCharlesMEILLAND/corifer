@@ -4,11 +4,118 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
-// Only the Article model - shared with FIF website
-// Same table, filtered by source = "corifer" or "both"
+// ──────────────────────────────────────────────
+// Business models
+// ──────────────────────────────────────────────
+
+model Member {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  name           String
+  logoUrl        String
+  website        String?
+  descFr         String?  @db.Text
+  descEn         String?  @db.Text
+  trade          Trade    @relation(fields: [tradeId], references: [id])
+  tradeId        String
+  cluster        Cluster? @relation(fields: [clusterId], references: [id])
+  clusterId      String?
+  city           String?
+  region         String?
+  lat            Float?
+  lng            Float?
+  featured       Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime? @updatedAt
+
+  // Extended profile fields
+  phone          String?
+  email          String?
+  address        String?
+  employeeCount  Int?
+  foundedYear    Int?
+  servicesFr     String?  @db.Text
+  servicesEn     String?  @db.Text
+  bannerUrl      String?
+  socialLinkedin String?
+  socialTwitter  String?
+
+  // Annuaire fields
+  director       String?
+  directorTitle  String?
+  revenue        String?
+  railwayPct     String?
+  certifications String?  @db.Text
+  implantations  String?  @db.Text
+
+  // Relations
+  user           User?
+  announcements  Announcement[]
+  mentionedIn    AnnouncementMention[]
+  jobPostings    JobPosting[]
+  products       Product[]
+  greenPractices GreenPractice[]
+}
+
+model BoardMember {
+  id       String @id @default(cuid())
+  name     String
+  titleFr  String
+  titleEn  String
+  company  String
+  photoUrl String
+  role     String
+  order    Int
+}
+
+model TeamMember {
+  id       String  @id @default(cuid())
+  name     String
+  titleFr  String
+  titleEn  String
+  photoUrl String
+  email    String?
+  order    Int
+}
+
+model Trade {
+  id            String         @id @default(cuid())
+  slug          String         @unique
+  nameFr        String
+  nameEn        String
+  taglineFr     String?
+  taglineEn     String?
+  descFr        String         @db.Text
+  descEn        String         @db.Text
+  imageUrl      String
+  order         Int
+  members       Member[]
+  jobCategories JobCategory[]
+  jobPostings   JobPosting[]
+}
+
+model Cluster {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  fullName    String
+  descFr      String   @db.Text
+  descEn      String   @db.Text
+  regionFr    String
+  regionEn    String
+  memberCount Int?
+  website     String?
+  logoUrl     String
+  lat         Float
+  lng         Float
+  color       String?
+  members     Member[]
+}
+
 model Article {
   id              String    @id @default(cuid())
   slug            String    @unique
@@ -23,11 +130,626 @@ model Article {
   imageUrl        String?
   pdfUrl          String?
   featured        Boolean   @default(false)
+  // Multi-site support: "fif" | "corifer" | "both"
   source          String    @default("fif")
+  // CORIFER-specific category: "evenement" | "annonce" | "article"
   coriferCategory String?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime? @updatedAt
 
   @@index([source])
   @@index([coriferCategory])
+}
+
+// ──────────────────────────────────────────────
+// CORIFER models
+// ──────────────────────────────────────────────
+
+model CoriferProject {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  acronym         String
+  title           String
+  description     String    @db.Text
+  objectives      String?   @db.Text  // JSON array of strings
+  keywords        String?   @db.Text  // JSON array of strings
+  axisId          String
+  axis            CoriferStrategicAxis @relation(fields: [axisId], references: [id])
+  trl             Int       @default(1)
+  trlLabel        String?
+  status          String    @default("en-cours") // en-cours, termine
+  progress        Int       @default(0) // 0-100
+  startDate       String?
+  endDate         String?
+  duration        String?
+  budgetTotal     String?
+  budgetCorifer   String?
+  imageUrl        String?
+  // Lead organization
+  leadName        String?
+  leadOrg         String?
+  // Partners as JSON array [{name, type}]
+  partners        String?   @db.Text
+  // Progress & results
+  progressSummary String?   @db.Text
+  deliverables    String?   @db.Text  // JSON array [{title, type}]
+  publications    String?   @db.Text  // JSON array [{title, venue}]
+  // Innovation & impact
+  barriers        String?   @db.Text  // JSON array of strings
+  benefits        String?   @db.Text  // JSON array [{icon, text}]
+  indicators      String?   @db.Text  // JSON array [{label, value}]
+  // Contact
+  contactName     String?
+  contactEmail    String?
+  contactRole     String?
+  // External links as JSON array [{label, url}]
+  externalLinks   String?   @db.Text
+  // Funding devices as JSON array [{name, detail}]
+  fundingDevices  String?   @db.Text
+  featured        Boolean   @default(false)
+  order           Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime? @updatedAt
+
+  @@index([axisId])
+  @@index([status])
+}
+
+model CoriferCallForProject {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String    @db.Text
+  status      String    @default("en-cours") // en-cours, cloture, a-venir
+  deadline    DateTime?
+  budget      String?
+  eligibility String?   @db.Text
+  contactEmail String?
+  documentUrl String?
+  imageUrl    String?
+  featured    Boolean   @default(false)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+
+  @@index([status])
+}
+
+model CoriferDocument {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  category    String    // rapport, note-position, etude, presentation
+  fileUrl     String?
+  fileSize    String?
+  imageUrl    String?
+  date        DateTime
+  featured    Boolean   @default(false)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+
+  @@index([category])
+}
+
+model CoriferPartner {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  category    String    // cluster, irt, operateur, pole
+  description String?   @db.Text
+  website     String?
+  logoUrl     String?
+  lat         Float?
+  lng         Float?
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+
+  @@index([category])
+}
+
+model CoriferTeamMember {
+  id        String  @id @default(cuid())
+  name      String
+  role      String
+  org       String?
+  title     String? // President, Secretaire, Membre, etc.
+  email     String?
+  phone     String?
+  photoUrl  String?
+  featured  Boolean @default(false)
+  order     Int     @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model CoriferKeyFigure {
+  id      String @id @default(cuid())
+  value   Int
+  suffix  String @default("")
+  label   String
+  icon    String @default("chart")
+  order   Int    @default(0)
+}
+
+model CoriferFundingDevice {
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  description String? @db.Text
+  website     String?
+  logoUrl     String?
+  order       Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime? @updatedAt
+}
+
+model CoriferStrategicAxis {
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  description String? @db.Text
+  color       String  @default("#2563EB")
+  icon        String? // lucide icon name
+  priorities  String? @db.Text // JSON array of strings
+  order       Int     @default(0)
+  projects    CoriferProject[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime? @updatedAt
+}
+
+model Publication {
+  id           String    @id @default(cuid())
+  slug         String    @unique
+  titleFr      String
+  titleEn      String
+  descFr       String?   @db.Text
+  descEn       String?   @db.Text
+  category     String
+  thumbnailUrl String?
+  pdfUrl       String?
+  date         DateTime
+  featured     Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  email     String
+  company   String?
+  phone     String?
+  type      String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+model KeyFigure {
+  id      String @id @default(cuid())
+  value   Int
+  suffix  String
+  labelFr String
+  labelEn String
+  icon    String
+  order   Int
+}
+
+model HeroSlide {
+  id         String  @id @default(cuid())
+  imageUrl   String
+  titleFr    String
+  titleEn    String
+  subtitleFr String?
+  subtitleEn String?
+  ctaLabelFr String?
+  ctaLabelEn String?
+  ctaHref    String?
+  order      Int
+}
+
+model Partner {
+  id      String  @id @default(cuid())
+  name    String
+  logoUrl String
+  website String?
+  order   Int
+}
+
+// ──────────────────────────────────────────────
+// Authentication models
+// ──────────────────────────────────────────────
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String?
+  hashedPassword String
+  role           String    @default("member")
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  sessions       Session[]
+
+  // Link to Member company (null for FIF admin staff)
+  memberId       String?   @unique
+  member         Member?   @relation(fields: [memberId], references: [id], onDelete: SetNull)
+
+  // Announcement system relations
+  announcements         Announcement[]
+  announcementLikes     AnnouncementLike[]
+  announcementBookmarks AnnouncementBookmark[]
+  comments              Comment[]
+
+  // Job board relations
+  jobPostings           JobPosting[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ──────────────────────────────────────────────
+// Announcement system models
+// ──────────────────────────────────────────────
+
+model Announcement {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  titleFr     String
+  titleEn     String?
+  contentFr   String    @db.Text
+  contentEn   String?   @db.Text
+  category    String
+  status      String    @default("pending")
+  imageUrl    String?
+  pinned      Boolean   @default(false)
+
+  author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId    String
+  member      Member    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  memberId    String
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  likes       AnnouncementLike[]
+  bookmarks   AnnouncementBookmark[]
+  comments    Comment[]
+  mentions    AnnouncementMention[]
+
+  @@index([category])
+  @@index([status])
+  @@index([memberId])
+  @@index([createdAt])
+}
+
+model AnnouncementLike {
+  id             String       @id @default(cuid())
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  announcement   Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  announcementId String
+  createdAt      DateTime     @default(now())
+
+  @@unique([userId, announcementId])
+}
+
+model AnnouncementBookmark {
+  id             String       @id @default(cuid())
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  announcement   Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  announcementId String
+  createdAt      DateTime     @default(now())
+
+  @@unique([userId, announcementId])
+}
+
+model Comment {
+  id             String       @id @default(cuid())
+  content        String       @db.Text
+  author         User         @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId       String
+  announcement   Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  announcementId String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([announcementId])
+}
+
+model AnnouncementMention {
+  id             String       @id @default(cuid())
+  announcement   Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  announcementId String
+  member         Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  memberId       String
+
+  @@unique([announcementId, memberId])
+}
+
+// ──────────────────────────────────────────────
+// Job Board models
+// ──────────────────────────────────────────────
+
+model JobCategory {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  name        String
+  externalUrl String?
+  level       String?
+  trade       Trade        @relation(fields: [tradeId], references: [id])
+  tradeId     String
+  order       Int          @default(0)
+  jobPostings JobPosting[]
+
+  @@index([tradeId])
+}
+
+model JobPosting {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+
+  // ── Identité poste ─────────────────────────
+  titleFr         String
+  titleEn         String?
+  codeRome        String?
+  contractType    String
+  city            String?
+  region          String?
+  department      String?
+  remote          String    @default("onsite")
+
+  // ── Description structurée ─────────────────
+  descriptionFr   String    @db.Text
+  descriptionEn   String?   @db.Text
+  missions        String?   @db.Text  // JSON array of bullet points
+  profileDescription String? @db.Text // "Profil recherché" paragraph
+  skills          String?   @db.Text  // JSON array of competence tags (max 10)
+  softSkills      String?   @db.Text  // JSON array (max 3)
+  technicalSkills String?   @db.Text  // JSON array "savoir-faire techniques"
+
+  // ── Compétences & Expérience ───────────────
+  educationLevel  String?
+  experienceLevel String    @default("indifferent")
+
+  // ── Conditions ─────────────────────────────
+  workTime        String    @default("full") // full, partial
+  schedule        String?   // "Nuits", "Week-ends", "Horaires classiques"
+  travelRequired  Boolean   @default(false)
+
+  // ── Rémunération ──────────────────────────
+  salaryMin       Int?
+  salaryMax       Int?
+  salaryText      String?
+  salaryPeriod    String    @default("annual") // annual, monthly
+  benefits        String?   @db.Text // JSON array: primes, tickets resto, etc.
+
+  // ── Candidature ────────────────────────────
+  applyMethod     String    @default("email")
+  applyEmail      String?
+  applyUrl        String?
+  screeningQuestions String? @db.Text // JSON array of questions
+  deadline        DateTime?
+
+  // ── Import source ──────────────────────────
+  franceTravailId   String?   // ID de l'offre FT importée
+  franceTravailUrl  String?   // URL d'origine France Travail
+  linkedinImported  Boolean   @default(false)
+
+  // ── Statut & modération ────────────────────
+  status          String    @default("pending")
+  pinned          Boolean   @default(false)
+
+  // ── Relations ──────────────────────────────
+  author          User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId        String
+  member          Member    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  memberId        String
+  trade           Trade     @relation(fields: [tradeId], references: [id])
+  tradeId         String
+  jobCategory     JobCategory? @relation(fields: [jobCategoryId], references: [id], onDelete: SetNull)
+  jobCategoryId   String?
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  publishedAt     DateTime?
+
+  applications    JobApplication[]
+
+  @@index([status])
+  @@index([contractType])
+  @@index([tradeId])
+  @@index([memberId])
+  @@index([region])
+  @@index([department])
+  @@index([createdAt])
+  @@index([franceTravailId])
+}
+
+model JobApplication {
+  id           String     @id @default(cuid())
+  firstName    String
+  lastName     String
+  email        String
+  phone        String?
+  message      String?    @db.Text
+  cvUrl        String
+  jobPosting   JobPosting @relation(fields: [jobPostingId], references: [id], onDelete: Cascade)
+  jobPostingId String
+  createdAt    DateTime   @default(now())
+
+  @@index([jobPostingId])
+}
+
+// ──────────────────────────────────────────────
+// Tenders (appels d'offres)
+// ──────────────────────────────────────────────
+
+model Tender {
+  id              String   @id @default(cuid())
+  externalId      String   @unique
+  source          String   // "ted" | "boamp"
+  titleFr         String
+  titleEn         String?
+  descriptionFr   String?  @db.Text
+  descriptionEn   String?  @db.Text
+  buyerName       String?
+  buyerCountry    String?
+  cpvCode         String?
+  cpvLabel        String?
+  country         String?
+  region          String?
+  estimatedValue  Float?
+  currency        String?  @default("EUR")
+  procedureType   String?
+  publishedAt     DateTime
+  deadline        DateTime?
+  sourceUrl       String?
+  status          String   @default("active") // active, expired, awarded
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime? @updatedAt
+
+  @@index([source])
+  @@index([cpvCode])
+  @@index([country])
+  @@index([publishedAt])
+  @@index([deadline])
+  @@index([status])
+}
+
+// ──────────────────────────────────────────────
+// CVthèque (resume bank)
+// ──────────────────────────────────────────────
+
+model CvProfile {
+  id              String   @id @default(cuid())
+  firstName       String
+  lastName        String
+  email           String
+  phone           String?
+  city            String?
+  region          String?
+  titleFr         String
+  titleEn         String?
+  summaryFr       String?  @db.Text
+  summaryEn       String?  @db.Text
+  experienceYears Int?
+  educationLevel  String?
+  skills          String?  @db.Text
+  languages       String?  @db.Text
+  cvFileUrl       String?
+  linkedinUrl     String?
+  anonymous       Boolean  @default(true)
+  available       Boolean  @default(true)
+  trades          String?  @db.Text
+  contractTypes   String?  @db.Text
+  remotePreference String?
+  salaryExpectation String?
+  status          String   @default("active")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+  @@index([region])
+  @@index([experienceYears])
+}
+
+// ──────────────────────────────────────────────
+// Product Catalogue
+// ──────────────────────────────────────────────
+
+model ProductCategory {
+  id       String    @id @default(cuid())
+  slug     String    @unique
+  nameFr   String
+  nameEn   String
+  order    Int       @default(0)
+  products Product[]
+}
+
+model Product {
+  id              String          @id @default(cuid())
+  slug            String          @unique
+  nameFr          String
+  nameEn          String
+  descriptionFr   String?         @db.Text
+  descriptionEn   String?         @db.Text
+  imageUrl        String?
+  certifications  String?         @db.Text
+  specifications  String?         @db.Text
+  category        ProductCategory @relation(fields: [categoryId], references: [id])
+  categoryId      String
+  member          Member          @relation(fields: [memberId], references: [id])
+  memberId        String
+  featured        Boolean         @default(false)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime?       @updatedAt
+
+  @@index([categoryId])
+  @@index([memberId])
+}
+
+// ──────────────────────────────────────────────
+// Green Practices (Ferro'Vert)
+// ──────────────────────────────────────────────
+
+model GreenPractice {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  titleFr       String
+  titleEn       String?
+  descriptionFr String   @db.Text
+  descriptionEn String?  @db.Text
+  scope         Int      // 1, 2, or 3 (GHG Protocol scopes)
+  companyName   String
+  companyLogo   String?
+  imageUrl      String?
+  impactFigure  String?  // e.g. "3600 camions en moins", "25% de ballast retraité"
+  impactLabel   String?
+  tags          String?  // comma-separated: "décarbonation,économie circulaire"
+  published     Boolean  @default(true)
+  order         Int      @default(0)
+  member        Member?  @relation(fields: [memberId], references: [id])
+  memberId      String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([scope])
+  @@index([published])
+  @@index([memberId])
+}
+
+// ──────────────────────────────────────────────
+// Ecosystem companies (cartographie)
+// ──────────────────────────────────────────────
+
+model EcosystemCompany {
+  id            String   @id @default(cuid())
+  name          String
+  category      String
+  subCategories String   @default("[]")
+  activity      String?  @db.Text
+  phone         String?
+  email         String?
+  website       String?
+  source        String?
+  member        String?
+  isFifMember   Boolean  @default(false)
+  city          String?
+  postalCode    String?
+  region        String?
+  lat           Float
+  lng           Float
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime? @updatedAt
+
+  @@index([category])
+  @@index([region])
+  @@index([name])
 }
