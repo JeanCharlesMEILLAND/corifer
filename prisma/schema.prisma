@@ -1,0 +1,33 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Only the Article model - shared with FIF website
+// Same table, filtered by source = "corifer" or "both"
+model Article {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  titleFr         String
+  titleEn         String
+  excerptFr       String?   @db.Text
+  excerptEn       String?   @db.Text
+  contentFr       String    @db.Text
+  contentEn       String    @db.Text
+  category        String
+  date            DateTime
+  imageUrl        String?
+  pdfUrl          String?
+  featured        Boolean   @default(false)
+  source          String    @default("fif")
+  coriferCategory String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime? @updatedAt
+
+  @@index([source])
+  @@index([coriferCategory])
+}
