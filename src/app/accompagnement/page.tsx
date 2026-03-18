@@ -162,7 +162,7 @@ export default function AccompagnementPage() {
     <>
       {/* ===== Hero Banner - Soft blue-tinted ===== */}
       <section className="bg-[#EFF6FF] border-b border-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 md:py-20">
           <motion.nav
             aria-label="Fil d'Ariane"
             className="mb-6"
@@ -214,7 +214,7 @@ export default function AccompagnementPage() {
 
       {/* ===== Section 1: Appels a projets / AMI ===== */}
       <section id="appels-projets" className="section-padding bg-white scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -307,7 +307,7 @@ export default function AccompagnementPage() {
 
       {/* ===== Section 2: Financement & aides ===== */}
       <section id="financement" className="section-padding bg-[#F8FAFC] scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -366,7 +366,7 @@ export default function AccompagnementPage() {
 
       {/* ===== Section 3: Conseil & expertise ===== */}
       <section id="conseil" className="section-padding bg-white scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

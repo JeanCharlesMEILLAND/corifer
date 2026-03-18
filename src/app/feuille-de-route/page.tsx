@@ -108,8 +108,8 @@ export default function FeuilleDeRoutePage() {
       <section className="relative overflow-hidden py-24 md:py-32">
         {/* Background photo with overlay */}
         <Image
-          src="/images/railway-aerial.jpg"
-          alt="Vue aérienne du réseau ferroviaire"
+          src="/images/freight-containers.jpg"
+          alt="Train de conteneurs - Transport ferroviaire de fret"
           fill
           className="object-cover"
           priority
@@ -125,7 +125,7 @@ export default function FeuilleDeRoutePage() {
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ export default function FeuilleDeRoutePage() {
 
       {/* ============ Section 1: Vision ============ */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <SectionTitle
               title="Notre vision"
@@ -194,7 +194,7 @@ export default function FeuilleDeRoutePage() {
 
       {/* ============ Section 2: Timeline ============ */}
       <section className="py-20 md:py-28 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <SectionTitle
               title="Jalons clés"
@@ -259,7 +259,7 @@ export default function FeuilleDeRoutePage() {
 
       {/* ============ Section 3: 4 Strategic Axes ============ */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <SectionTitle
               title="Les 4 axes stratégiques"
@@ -342,7 +342,7 @@ export default function FeuilleDeRoutePage() {
 
       {/* ============ Section 4: Download CTA ============ */}
       <section className="py-20 md:py-28 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="relative bg-gradient-to-br from-[#0F1B3D] to-[#1a3068] rounded-2xl p-10 md:p-14 text-center overflow-hidden">
               {/* Decorative element */}

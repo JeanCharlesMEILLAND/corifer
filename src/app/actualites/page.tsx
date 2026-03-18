@@ -231,7 +231,7 @@ export default function ActualitesPage() {
     <>
       {/* ===== Hero Banner - White with left accent bar ===== */}
       <section className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 md:py-20">
           <motion.nav
             aria-label="Fil d'Ariane"
             className="mb-6"
@@ -290,7 +290,7 @@ export default function ActualitesPage() {
       </section>
 
       {/* ===== Tabs + Filters + Content ===== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16">
         {/* Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

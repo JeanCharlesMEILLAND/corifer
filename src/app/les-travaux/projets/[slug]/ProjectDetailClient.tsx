@@ -321,7 +321,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent" />
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+          <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8">
             <motion.nav
               aria-label="Fil d'Ariane"
               className="mb-6"
@@ -342,7 +342,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -372,7 +372,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ Bloc 1 - Infos clés ============ */}
       <section className="py-10 md:py-14 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
               <div className="flex flex-col gap-2">
@@ -445,7 +445,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ Bloc 2 - Description ============ */}
       <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
@@ -478,7 +478,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ Bloc 3 - Porteur & Partenaires ============ */}
       <section className="py-16 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
@@ -529,7 +529,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ Bloc 4 - Avancement & Résultats ============ */}
       <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
@@ -580,7 +580,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ Bloc 5 - Innovations & Impact ============ */}
       <section className="py-16 md:py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
@@ -647,7 +647,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ Bloc 6 - Pour aller plus loin ============ */}
       <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
@@ -717,7 +717,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* ============ CTA Section ============ */}
       <section className="py-16 md:py-20 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="relative bg-gradient-to-br from-[#0F1B3D] to-[#1a3068] rounded-2xl p-10 md:p-14 text-center overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#2563EB]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />

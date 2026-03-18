@@ -22,7 +22,7 @@ export default function Footer() {
 
       <div className="bg-[#0F1B3D]">
         {/* Main footer content */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-10">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-10">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
             {/* Column 1: Logo + description + social */}
             <div>
@@ -137,7 +137,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-5">
             <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
               <p className="text-xs text-white/70">
                 &copy; {currentYear} {SITE_CONFIG.name}. Tous droits r&eacute;serv&eacute;s.

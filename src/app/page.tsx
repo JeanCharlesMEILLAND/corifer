@@ -108,7 +108,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-28 text-center">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -170,8 +170,8 @@ export default function Home() {
           className="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 mt-auto"
         >
           <Image
-            src="/images/hero-train.jpg"
-            alt="Train à grande vitesse - Innovation ferroviaire"
+            src="/images/hero-freight.jpg"
+            alt="Trains de fret ferroviaire - Vue aérienne"
             fill
             className="object-cover"
             priority
@@ -189,7 +189,7 @@ export default function Home() {
           Overlapping card sits between hero and quote
           ======================================== */}
       <section className="relative bg-[#F0F4F8] pt-0 pb-24 md:pb-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -230,7 +230,7 @@ export default function Home() {
           Asymmetric layout, president quote
           ======================================== */}
       <section className="bg-[#F0F4F8] pb-24 md:pb-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -308,7 +308,7 @@ export default function Home() {
           Staggered asymmetric layout
           ======================================== */}
       <section className="bg-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section heading - left aligned for editorial feel */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -430,7 +430,7 @@ export default function Home() {
           Editorial magazine-style layout
           ======================================== */}
       <section className="bg-[#FAFBFC] py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -558,7 +558,7 @@ export default function Home() {
           Clean horizontal flow, light gray background
           ======================================== */}
       <section className="bg-[#F5F5F5] py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

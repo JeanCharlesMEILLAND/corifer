@@ -249,7 +249,7 @@ export default function LeCoriferPage() {
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-14 md:py-20">
           {/* Breadcrumb */}
           <nav aria-label="Fil d'ariane" className="mb-6">
             <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
@@ -317,7 +317,7 @@ export default function LeCoriferPage() {
           Section 2 - Qui sommes-nous ?
           ======================================== */}
       <section id="qui-sommes-nous" className="section-padding bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.div {...fadeInUp}>
             <SectionTitle
               title="Qui sommes-nous ?"
@@ -379,8 +379,8 @@ export default function LeCoriferPage() {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
                 <Image
-                  src="/images/train-station.jpg"
-                  alt="Gare ferroviaire moderne - CORIFER"
+                  src="/images/freight-yard.jpg"
+                  alt="Gare de triage ferroviaire - CORIFER"
                   fill
                   className="object-cover"
                 />
@@ -396,7 +396,7 @@ export default function LeCoriferPage() {
           Section 3 - Gouvernance
           ======================================== */}
       <section id="gouvernance" className="section-padding bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.div {...fadeInUp}>
             <SectionTitle
               title="Gouvernance"
@@ -469,7 +469,7 @@ export default function LeCoriferPage() {
           Section 4 - Role & Missions
           ======================================== */}
       <section id="role-missions" className="section-padding bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.div {...fadeInUp}>
             <SectionTitle
               title="Role & missions"
@@ -514,7 +514,7 @@ export default function LeCoriferPage() {
           Section 5 - Les acteurs
           ======================================== */}
       <section id="les-acteurs" className="section-padding bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.div {...fadeInUp}>
             <SectionTitle
               title="Les acteurs de l'ecosysteme"

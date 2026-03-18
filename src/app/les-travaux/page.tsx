@@ -96,7 +96,7 @@ export default function LesTravauxPage() {
     <>
       {/* ============ Hero - Light gray with stats overlay ============ */}
       <section className="relative bg-[#F9FAFB] border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 pb-28 md:pb-36">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 md:pt-20 pb-28 md:pb-36">
           {/* Breadcrumb */}
           <motion.nav
             aria-label="Fil d'Ariane"
@@ -136,7 +136,7 @@ export default function LesTravauxPage() {
 
         {/* Stats cards overlapping bottom edge */}
         <div className="absolute bottom-0 left-0 right-0 translate-y-1/2">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-4"
               initial={{ opacity: 0, y: 20 }}
@@ -171,7 +171,7 @@ export default function LesTravauxPage() {
 
       {/* ============ Internal Navigation Cards ============ */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <SectionTitle
               title="Explorer nos travaux"
@@ -241,7 +241,7 @@ export default function LesTravauxPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2563EB]/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="text-center mb-16">
               <div className="w-12 h-1 bg-[#60A5FA] rounded-full mb-4 mx-auto" />

@@ -72,7 +72,7 @@ export default function Header() {
             : 'bg-white shadow-sm'
         }`}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="flex h-[72px] items-center justify-between">
             {/* Logo */}
             <Link href="/" className="shrink-0">
