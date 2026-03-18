@@ -2,47 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import {
-  Brain,
-  Leaf,
-  Building,
-  Trophy,
-  ArrowRight,
-  Map,
-  FolderOpen,
-  Calendar,
-  Users,
-  Briefcase,
-  TrendingUp,
-} from 'lucide-react'
-import { STRATEGIC_AXES } from '@/lib/constants'
+import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react'
 import { Counter } from '@/components/ui/Counter'
 import { Button } from '@/components/ui/Button'
-import { Card } from '@/components/ui/Card'
-import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Badge } from '@/components/ui/Badge'
-import { ProgressBar } from '@/components/ui/ProgressBar'
-
-// ========================================
-// Axis icon mapping
-// ========================================
-const axisIcons: Record<string, React.ReactNode> = {
-  'trains-intelligents': <Brain className="w-7 h-7" />,
-  'decarbonation': <Leaf className="w-7 h-7" />,
-  'infrastructure': <Building className="w-7 h-7" />,
-  'competitivite': <Trophy className="w-7 h-7" />,
-}
-
-const axisDescriptions: Record<string, string> = {
-  'trains-intelligents':
-    'Automatisation, connectivité, maintenance prédictive et exploitation intelligente du réseau ferroviaire.',
-  'decarbonation':
-    'Hydrogène, batteries, efficacité énergétique et réduction de l\'empreinte carbone du transport ferroviaire.',
-  'infrastructure':
-    'Surveillance, maintenance avancée et adaptation de l\'infrastructure aux enjeux climatiques.',
-  'competitivite':
-    'Productivité industrielle, digitalisation de la production et renforcement de la chaîne de valeur française.',
-}
 
 // ========================================
 // Placeholder news articles
@@ -55,7 +18,6 @@ const PLACEHOLDER_ARTICLES = [
       'Le CORIFER lance un nouvel appel à manifestation d\'intérêt dédié au développement de rames légères à faibles émissions pour les lignes régionales.',
     date: '12 mars 2026',
     category: 'Appel à projets',
-    gradient: 'from-blue-600 to-blue-800',
     href: '/actualites/ami-trains-legers-2025',
   },
   {
@@ -65,7 +27,6 @@ const PLACEHOLDER_ARTICLES = [
       'Les résultats des premiers essais du prototype de train à hydrogène confirment les objectifs d\'autonomie et de performance.',
     date: '28 février 2026',
     category: 'Recherche',
-    gradient: 'from-emerald-600 to-emerald-800',
     href: '/actualites/resultats-hydrogene-ferroviaire',
   },
   {
@@ -75,66 +36,43 @@ const PLACEHOLDER_ARTICLES = [
       'Le forum annuel réunira l\'ensemble des acteurs de l\'écosystème ferroviaire pour présenter les avancées des projets soutenus.',
     date: '15 février 2026',
     category: 'Événement',
-    gradient: 'from-purple-600 to-purple-800',
     href: '/actualites/forum-corifer-2026',
   },
 ]
 
 // ========================================
-// Partner logos
+// Partner / Ecosystem names
 // ========================================
-const PARTNERS = [
-  'SNCF',
-  'Alstom',
-  'RATP',
-  'DGITM',
-  'ADEME',
-  'Bpifrance',
-  'Railenium',
-  'SNCF Réseau',
-  'Keolis',
-  'Transdev',
-  'Faiveley',
-  'DGE',
-]
+const PARTNERS_ROW_1 = ['SNCF', 'Alstom', 'RATP', 'DGITM', 'ADEME', 'Bpifrance']
+const PARTNERS_ROW_2 = ['Railenium', 'SNCF Réseau', 'Keolis', 'Transdev', 'Faiveley', 'DGE']
 
 // ========================================
 // Animation variants
 // ========================================
-const containerVariants = {
+const staggerContainer = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
     },
   },
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' as const },
+    transition: { duration: 0.6, ease: 'easeOut' as const },
   },
 }
 
-const heroContainerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-}
-
-const heroItemVariants = {
-  hidden: { opacity: 0, y: 30 },
+const fadeIn = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: 'easeOut' as const },
+    transition: { duration: 0.7 },
   },
 }
 
@@ -145,375 +83,159 @@ export default function Home() {
   return (
     <>
       {/* ========================================
-          Section 1 - Hero
+          SECTION 1 — Hero
+          Light background, CORIFER identity, railway pattern
           ======================================== */}
-      <section className="relative overflow-hidden bg-[#0F1B3D] min-h-[90vh] flex items-center">
-        {/* Geometric pattern background - CSS only */}
+      <section className="relative overflow-hidden bg-white min-h-[92vh] flex flex-col justify-center">
+        {/* Subtle dot grid pattern background */}
         <div className="absolute inset-0" aria-hidden="true">
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F1B3D] via-[#162450] to-[#0a1128]" />
-          {/* Grid pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.35]"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle, #cbd5e1 1px, transparent 1px)',
+              backgroundSize: '32px 32px',
+            }}
+          />
+          {/* Faint diagonal railway-track lines */}
           <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-              backgroundSize: '60px 60px',
+                'repeating-linear-gradient(135deg, transparent, transparent 40px, #0F1B3D 40px, #0F1B3D 41px, transparent 41px, transparent 48px, #0F1B3D 48px, #0F1B3D 49px)',
             }}
           />
-          {/* Diagonal accent lines */}
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(37,99,235,0.3) 80px, rgba(37,99,235,0.3) 81px)',
-            }}
-          />
-          {/* Radial glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2563EB]/5 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
           <motion.div
-            variants={heroContainerVariants}
+            variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="max-w-4xl"
           >
-            <motion.p
-              variants={heroItemVariants}
-              className="text-[#2563EB] font-semibold tracking-widest uppercase text-sm mb-6"
-            >
-              Filière ferroviaire
-            </motion.p>
-
+            {/* CORIFER wordmark */}
             <motion.h1
-              variants={heroItemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]"
+              variants={fadeUp}
+              className="font-[var(--font-plus-jakarta-sans)] text-6xl sm:text-7xl lg:text-[6.5rem] font-extrabold tracking-[-0.03em] text-[#0F1B3D] leading-none"
             >
-              CORIFER
+              CORI
+              <span className="bg-gradient-to-r from-[#2563EB] via-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent">
+                FER
+              </span>
             </motion.h1>
 
+            {/* Full name */}
             <motion.p
-              variants={heroItemVariants}
-              className="mt-4 text-xl sm:text-2xl text-blue-200/90 font-medium leading-relaxed max-w-3xl"
+              variants={fadeUp}
+              className="mt-5 text-lg sm:text-xl text-[#0F1B3D]/70 font-medium tracking-wide max-w-2xl mx-auto leading-relaxed"
+              style={{ fontFamily: 'var(--font-inter)' }}
             >
-              Conseil d&apos;Orientation de la Recherche et de l&apos;Innovation
-              de la filière <span className="text-white font-bold">FER</span>roviaire
+              Conseil d&apos;Orientation de la Recherche
+              <br className="hidden sm:block" />
+              {' '}et de l&apos;Innovation de la filière{' '}
+              <span className="font-bold text-[#0F1B3D]">FER</span>roviaire
             </motion.p>
 
+            {/* Tagline */}
             <motion.p
-              variants={heroItemVariants}
-              className="mt-6 text-lg text-gray-300/90 leading-relaxed max-w-2xl"
+              variants={fadeUp}
+              className="mt-8 text-base sm:text-lg text-gray-500 max-w-xl mx-auto leading-relaxed font-normal"
+              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Fédérer les acteurs, orienter la recherche et accélérer
               l&apos;innovation pour construire le ferroviaire de demain.
             </motion.p>
 
+            {/* Buttons - intentionally different from each other */}
             <motion.div
-              variants={heroItemVariants}
-              className="mt-10 flex flex-wrap gap-4"
+              variants={fadeUp}
+              className="mt-10 flex flex-wrap items-center justify-center gap-4"
             >
               <Button href="/le-corifer" size="lg" variant="primary">
                 Découvrir le CORIFER
-                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button href="/les-travaux/projets" size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+              <Link
+                href="/les-travaux/projets"
+                className="group inline-flex items-center gap-2 text-[#0F1B3D] font-semibold text-lg hover:text-[#2563EB] transition-colors duration-200"
+              >
                 Voir les projets
-              </Button>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Bottom decorative edge */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
-      </section>
-
-      {/* ========================================
-          Section 2 - Key Figures
-          ======================================== */}
-      <section className="bg-gray-50 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14"
-          >
-            <SectionTitle
-              title="Le CORIFER en chiffres"
-              subtitle="Piloter et soutenir la recherche et l'innovation ferroviaire en France"
-              centered
-            />
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <Counter target={45} label="Projets soumis" />
-            <Counter target={28} label="Projets soutenus" />
-            <Counter target={150} suffix=" M€" label="Soutien de l'État" />
-            <Counter target={12} label="Partenaires de l'écosystème" />
+        {/* Wide banner strip with railway aesthetic */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="relative w-full h-48 sm:h-56 md:h-64 mt-auto"
+        >
+          {/* Steel-gradient base */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1e293b] via-[#334155] to-[#1e293b]" />
+          {/* Diagonal steel texture lines */}
+          <div
+            className="absolute inset-0 opacity-[0.08]"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255,255,255,0.15) 6px, rgba(255,255,255,0.15) 7px)',
+            }}
+          />
+          {/* Horizontal rail lines */}
+          <div className="absolute inset-0 flex flex-col justify-center gap-12 px-0">
+            <div className="w-full h-[3px] bg-white/10" />
+            <div className="w-full h-[3px] bg-white/10" />
           </div>
-        </div>
+          {/* Cross-ties (sleepers) - railway track pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(90deg, transparent, transparent 58px, rgba(255,255,255,0.4) 58px, rgba(255,255,255,0.4) 64px)',
+            }}
+          />
+          {/* Blue accent glow */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[120px] bg-[#2563EB]/10 blur-[80px] rounded-full" />
+          {/* Bottom gradient fade into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F0F4F8] to-transparent" />
+        </motion.div>
       </section>
 
       {/* ========================================
-          Section 3 - Strategic Axes
+          SECTION 2 — Key Figures (floating card)
+          Overlapping card sits between hero and quote
           ======================================== */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-[#F0F4F8] pt-0 pb-24 md:pb-32">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              title="Axes stratégiques"
-              subtitle="Quatre grandes priorités de recherche et d'innovation pour la filière ferroviaire française."
-              centered
-            />
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid md:grid-cols-2 gap-6 mt-2"
-          >
-            {STRATEGIC_AXES.map((axis) => (
-              <motion.div key={axis.id} variants={itemVariants}>
-                <div
-                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden h-full border-l-4 p-6"
-                  style={{ borderLeftColor: axis.color }}
-                >
-                  <div className="flex items-start gap-5">
-                    <div
-                      className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center"
-                      style={{ backgroundColor: `${axis.color}15`, color: axis.color }}
-                    >
-                      {axisIcons[axis.id]}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-bold text-[#0F1B3D] mb-2">
-                        {axis.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                        {axisDescriptions[axis.id]}
-                      </p>
-                      <Link
-                        href="/feuille-de-route"
-                        className="inline-flex items-center text-sm font-semibold hover:underline"
-                        style={{ color: axis.color }}
-                      >
-                        En savoir plus
-                        <ArrowRight className="ml-1 w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================
-          Section 4 - Latest News
-          ======================================== */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              title="Dernières actualités"
-              subtitle="Suivez les dernières avancées, événements et appels à projets de la filière."
-              centered
-            />
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid md:grid-cols-3 gap-8 mt-2"
-          >
-            {PLACEHOLDER_ARTICLES.map((article) => (
-              <motion.div key={article.id} variants={itemVariants}>
-                <Card href={article.href} className="h-full group" padding={false}>
-                  {/* Image placeholder */}
-                  <div
-                    className={`relative w-full aspect-[16/10] bg-gradient-to-br ${article.gradient} flex items-center justify-center`}
-                  >
-                    <span className="text-white/20 text-6xl font-bold">
-                      {article.id}
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-sm text-gray-500 flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {article.date}
-                      </span>
-                      <Badge variant="info" size="sm">
-                        {article.category}
-                      </Badge>
-                    </div>
-                    <h3 className="text-lg font-bold text-[#0F1B3D] mb-2 leading-snug group-hover:text-[#2563EB] transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                    <span className="inline-flex items-center mt-4 text-sm font-semibold text-[#2563EB] group-hover:underline">
-                      Lire la suite
-                      <ArrowRight className="ml-1 w-4 h-4" />
-                    </span>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-12"
-          >
-            <Button href="/actualites" variant="outline">
-              Toutes les actualités
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================
-          Section 5 - Featured Project
-          ======================================== */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              title="Projet à la une"
-              subtitle="Découvrez les projets de recherche et d'innovation soutenus par le CORIFER."
-              centered
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.7 }}
+            className="-mt-16 relative z-20"
           >
-            <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F1B3D] via-[#162450] to-[#1a2d5e] shadow-xl">
-              <div className="grid lg:grid-cols-5 gap-0">
-                {/* Left content */}
-                <div className="lg:col-span-3 p-8 md:p-12">
-                  <div className="flex flex-wrap items-center gap-3 mb-6">
-                    <Badge variant="info" size="md">
-                      Axe : Décarbonation
-                    </Badge>
-                    <Badge variant="success" size="md">
-                      TRL 5-6
-                    </Badge>
-                    <Badge variant="warning" size="md">
-                      France 2030
-                    </Badge>
-                  </div>
-
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
-                    HydrauRail&nbsp;&mdash;&nbsp;Train Régional à Hydrogène Vert
-                  </h3>
-
-                  <p className="text-gray-300 leading-relaxed mb-8 max-w-xl">
-                    Développement d&apos;une motorisation hydrogène pour les
-                    autorails régionaux, visant une autonomie de 600 km et zéro
-                    émission directe. Le projet associe industriels, opérateurs
-                    et laboratoires pour accélérer la transition énergétique du
-                    transport ferroviaire régional.
-                  </p>
-
-                  <div className="mb-8 max-w-md">
-                    <ProgressBar
-                      percentage={62}
-                      label="Avancement du projet"
-                      className="[&_span]:text-gray-300 [&_span]:text-white [&_.text-gray-700]:text-gray-300 [&_.text-gray-900]:text-white"
-                    />
-                  </div>
-
-                  <div className="mb-8">
-                    <p className="text-sm text-gray-400 mb-3 font-medium">
-                      Partenaires du projet
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      {['Alstom', 'SNCF', 'Railenium', 'CEA', 'ADEME'].map(
-                        (partner) => (
-                          <span
-                            key={partner}
-                            className="px-4 py-2 bg-white/10 rounded-lg text-sm text-white/80 font-medium"
-                          >
-                            {partner}
-                          </span>
-                        )
-                      )}
-                    </div>
-                  </div>
-
-                  <Button
-                    href="/les-travaux/projets/hydraurail"
-                    variant="primary"
-                    size="lg"
-                  >
-                    Découvrir ce projet
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
+            <div className="bg-white rounded-sm shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+                {/* Counter 1 */}
+                <div className="relative p-6 md:p-8">
+                  <div className="absolute top-0 left-6 right-6 h-[3px] bg-[#2563EB] rounded-b-full" />
+                  <Counter target={45} label="Projets soumis" />
                 </div>
-
-                {/* Right decorative panel */}
-                <div className="hidden lg:flex lg:col-span-2 bg-gradient-to-br from-[#2563EB]/20 to-[#2563EB]/5 items-center justify-center relative">
-                  <div className="absolute inset-0 opacity-10">
-                    <div
-                      className="w-full h-full"
-                      style={{
-                        backgroundImage:
-                          'radial-gradient(circle at 30% 40%, rgba(37,99,235,0.4) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(16,185,129,0.3) 0%, transparent 50%)',
-                      }}
-                    />
-                  </div>
-                  <div className="text-center relative z-10 px-8">
-                    <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-white/10 flex items-center justify-center">
-                      <TrendingUp className="w-12 h-12 text-[#2563EB]" />
-                    </div>
-                    <p className="text-5xl font-extrabold text-white mb-2">
-                      8,2 M&euro;
-                    </p>
-                    <p className="text-gray-400 text-sm">
-                      Budget total du projet
-                    </p>
-                    <div className="mt-6 pt-6 border-t border-white/10">
-                      <p className="text-3xl font-bold text-emerald-400 mb-1">
-                        2024&ndash;2028
-                      </p>
-                      <p className="text-gray-400 text-sm">
-                        Durée du programme
-                      </p>
-                    </div>
-                  </div>
+                {/* Counter 2 */}
+                <div className="relative p-6 md:p-8">
+                  <div className="absolute top-0 left-6 right-6 h-[3px] bg-[#10B981] rounded-b-full" />
+                  <Counter target={28} label="Projets soutenus" />
+                </div>
+                {/* Counter 3 */}
+                <div className="relative p-6 md:p-8">
+                  <div className="absolute top-0 left-6 right-6 h-[3px] bg-[#F59E0B] rounded-b-full" />
+                  <Counter target={150} suffix=" M€" label="Soutien de l'État" />
+                </div>
+                {/* Counter 4 */}
+                <div className="relative p-6 md:p-8">
+                  <div className="absolute top-0 left-6 right-6 h-[3px] bg-[#8B5CF6] rounded-b-full" />
+                  <Counter target={12} label="Partenaires écosystème" />
                 </div>
               </div>
             </div>
@@ -522,138 +244,435 @@ export default function Home() {
       </section>
 
       {/* ========================================
-          Section 6 - Quick Links CTA
+          SECTION 3 — Editorial Quote Block
+          Asymmetric layout, president quote
           ======================================== */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#F0F4F8] pb-24 md:pb-32">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid md:grid-cols-3 gap-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            className="relative"
           >
-            {/* Accompagnement */}
-            <motion.div variants={itemVariants}>
-              <Link
-                href="/accompagnement"
-                className="group block h-full rounded-2xl bg-white border border-gray-100 p-8 shadow-sm hover:shadow-lg hover:border-[#2563EB]/20 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-[#2563EB] transition-colors duration-300">
-                  <Briefcase className="w-7 h-7 text-[#2563EB] group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0F1B3D] mb-3">
-                  Accompagnement
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Découvrez nos dispositifs de soutien, appels à projets et
-                  mécanismes de financement pour l&apos;innovation ferroviaire.
-                </p>
-                <span className="inline-flex items-center text-sm font-semibold text-[#2563EB] group-hover:translate-x-1 transition-transform duration-200">
-                  Explorer
-                  <ArrowRight className="ml-2 w-4 h-4" />
+            <div className="flex flex-col md:flex-row items-start gap-6 md:gap-10">
+              {/* Large quotation mark */}
+              <div className="flex-shrink-0" aria-hidden="true">
+                <span
+                  className="block text-[8rem] md:text-[10rem] leading-none font-serif text-[#2563EB]/15 select-none"
+                  style={{ marginTop: '-2rem' }}
+                >
+                  &ldquo;
                 </span>
-              </Link>
-            </motion.div>
-
-            {/* Feuille de route */}
-            <motion.div variants={itemVariants}>
-              <Link
-                href="/feuille-de-route"
-                className="group block h-full rounded-2xl bg-white border border-gray-100 p-8 shadow-sm hover:shadow-lg hover:border-[#2563EB]/20 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-[#2563EB] transition-colors duration-300">
-                  <Map className="w-7 h-7 text-[#2563EB] group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0F1B3D] mb-3">
-                  Feuille de route
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Notre stratégie 2023-2030 pour structurer et orienter la
-                  recherche et l&apos;innovation de la filière ferroviaire.
-                </p>
-                <span className="inline-flex items-center text-sm font-semibold text-[#2563EB] group-hover:translate-x-1 transition-transform duration-200">
-                  Consulter
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </span>
-              </Link>
-            </motion.div>
-
-            {/* Les travaux */}
-            <motion.div variants={itemVariants}>
-              <Link
-                href="/les-travaux"
-                className="group block h-full rounded-2xl bg-white border border-gray-100 p-8 shadow-sm hover:shadow-lg hover:border-[#2563EB]/20 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-[#2563EB] transition-colors duration-300">
-                  <FolderOpen className="w-7 h-7 text-[#2563EB] group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0F1B3D] mb-3">
-                  Les travaux
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Projets de recherche soutenus, documentation technique et
-                  publications de la filière ferroviaire.
-                </p>
-                <span className="inline-flex items-center text-sm font-semibold text-[#2563EB] group-hover:translate-x-1 transition-transform duration-200">
-                  Découvrir
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </span>
-              </Link>
-            </motion.div>
+              </div>
+              {/* Quote text */}
+              <div className="flex-1 min-w-0">
+                <blockquote>
+                  <p
+                    className="text-xl sm:text-2xl md:text-[1.65rem] text-[#0F1B3D] font-medium italic leading-relaxed"
+                    style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
+                  >
+                    Le CORIFER incarne la volonté collective de la filière ferroviaire
+                    française de placer la recherche et l&apos;innovation au c&oelig;ur de sa
+                    stratégie. Notre ambition : faire du ferroviaire le mode de
+                    transport le plus innovant, le plus décarboné et le plus compétitif
+                    d&apos;Europe.
+                  </p>
+                  <footer className="mt-8 flex items-center gap-4">
+                    {/* Decorative avatar placeholder */}
+                    <div className="w-12 h-12 rounded-full bg-[#0F1B3D] flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-sm">LP</span>
+                    </div>
+                    <div>
+                      <cite className="not-italic font-bold text-[#0F1B3D] text-base">
+                        Lionel Pujol
+                      </cite>
+                      <p className="text-sm text-gray-500 mt-0.5">
+                        Chef de projet industrie ferroviaire, DGE
+                      </p>
+                    </div>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* ========================================
-          Section 7 - Partners / Members Logos
+          Railway-track decorative divider
+          A unique CSS element: two parallel lines with cross-ties
           ======================================== */}
-      <section className="py-20 md:py-24 bg-white border-t border-gray-100">
+      <div className="relative bg-white h-12 overflow-hidden" aria-hidden="true">
+        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex flex-col gap-[6px] items-center">
+          <div className="w-full h-[2px] bg-gray-200" />
+          <div className="w-full h-[2px] bg-gray-200" />
+        </div>
+        {/* Cross ties */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(90deg, transparent, transparent 30px, #e5e7eb 30px, #e5e7eb 34px)',
+          }}
+        />
+        {/* Center diamond */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#2563EB] rotate-45" />
+      </div>
+
+      {/* ========================================
+          SECTION 4 — Discover (3 entry points)
+          Staggered asymmetric layout
+          ======================================== */}
+      <section className="bg-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section heading - left aligned for editorial feel */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6 }}
+            className="mb-12"
           >
-            <SectionTitle
-              title="Ils font le ferroviaire de demain"
-              subtitle="Industriels, opérateurs, laboratoires et institutions publiques : un écosystème mobilisé."
-              centered
-            />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB] mb-3 block">
+              Explorer
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0F1B3D] tracking-tight">
+              Nos missions
+            </h2>
           </motion.div>
 
           <motion.div
-            variants={containerVariants}
+            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-6 mt-4"
+            viewport={{ once: true, margin: '-60px' }}
+            className="grid md:grid-cols-5 gap-5"
           >
-            {PARTNERS.map((partner) => (
-              <motion.div
-                key={partner}
-                variants={itemVariants}
-                className="flex items-center justify-center h-20 md:h-24 bg-gray-50 rounded-xl border border-gray-100 hover:border-[#2563EB]/20 hover:shadow-sm transition-all duration-200"
+            {/* Card 1 - La feuille de route (large, spans 3 cols) */}
+            <motion.div variants={fadeUp} className="md:col-span-3">
+              <Link
+                href="/feuille-de-route"
+                className="group block h-full bg-[#EFF6FF] hover:bg-[#DBEAFE] transition-colors duration-300 p-8 md:p-10 rounded-sm relative overflow-hidden"
               >
-                <span className="text-sm md:text-base font-bold text-gray-400 tracking-wide">
-                  {partner}
+                {/* Timeline illustration (CSS drawn) */}
+                <div className="absolute right-6 top-6 bottom-6 w-[2px] bg-[#2563EB]/10 hidden md:block" aria-hidden="true">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]/30" />
+                  <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]/50" />
+                  <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]/70" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]" />
+                </div>
+
+                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#2563EB]/70 mb-4 block">
+                  Stratégie 2023 &mdash; 2030
                 </span>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-[#0F1B3D] mb-3 leading-tight max-w-md">
+                  La feuille de route
+                </h3>
+                <p className="text-gray-600 leading-relaxed max-w-lg mb-8 text-[15px]">
+                  Quatre axes stratégiques pour structurer et orienter la recherche
+                  et l&apos;innovation de la filière ferroviaire française.
+                  Trains intelligents, décarbonation, infrastructure résiliente et
+                  compétitivité industrielle.
+                </p>
+
+                <span className="inline-flex items-center text-sm font-bold text-[#2563EB] group-hover:gap-3 gap-2 transition-all duration-200">
+                  Consulter la feuille de route
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* Right column - 2 stacked cards */}
+            <div className="md:col-span-2 flex flex-col gap-5">
+              {/* Card 2 - Les travaux */}
+              <motion.div variants={fadeUp} className="flex-1">
+                <Link
+                  href="/les-travaux"
+                  className="group block h-full bg-[#F0FDF4] hover:bg-[#DCFCE7] transition-colors duration-300 p-8 rounded-sm relative overflow-hidden"
+                >
+                  {/* Project count badge */}
+                  <div className="absolute top-6 right-6">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#10B981]/10 text-[#10B981] font-extrabold text-sm">
+                      28
+                    </span>
+                  </div>
+
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#10B981]/70 mb-4 block">
+                    Projets & Recherche
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#0F1B3D] mb-2 leading-tight">
+                    Les travaux
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    Projets de recherche soutenus, documentation technique et
+                    publications de la filière.
+                  </p>
+                  <span className="inline-flex items-center text-sm font-bold text-[#10B981] group-hover:gap-3 gap-2 transition-all duration-200">
+                    Découvrir
+                    <ChevronRight className="w-4 h-4" />
+                  </span>
+                </Link>
               </motion.div>
-            ))}
+
+              {/* Card 3 - Accompagnement */}
+              <motion.div variants={fadeUp} className="flex-1">
+                <Link
+                  href="/accompagnement"
+                  className="group block h-full bg-[#FAF5FF] hover:bg-[#F3E8FF] transition-colors duration-300 p-8 rounded-sm relative overflow-hidden"
+                >
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B5CF6]/70 mb-4 block">
+                    Soutien & Financement
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#0F1B3D] mb-2 leading-tight">
+                    Accompagnement
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    Appels à projets, AMI, mécanismes de financement pour
+                    l&apos;innovation ferroviaire.
+                  </p>
+                  <span className="inline-flex items-center text-sm font-bold text-[#8B5CF6] group-hover:gap-3 gap-2 transition-all duration-200">
+                    Explorer
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ========================================
+          SECTION 5 — Latest News
+          Editorial magazine-style layout
+          ======================================== */}
+      <section className="bg-[#FAFBFC] py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="flex items-end justify-between mb-12"
+          >
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#2563EB] mb-3 block">
+                Actualités
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#0F1B3D] tracking-tight">
+                Dernières nouvelles
+              </h2>
+            </div>
+            <Link
+              href="/actualites"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#1d4ed8] transition-colors"
+            >
+              Toutes les actualités
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-12"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="grid md:grid-cols-2 gap-6"
           >
-            <Button href="/le-corifer#les-acteurs" variant="ghost">
-              <Users className="mr-2 w-4 h-4" />
-              Voir tous les acteurs
-            </Button>
+            {/* Featured article - large, horizontal */}
+            <motion.div variants={fadeUp}>
+              <Link
+                href={PLACEHOLDER_ARTICLES[0].href}
+                className="group block h-full"
+              >
+                {/* Image placeholder with gradient */}
+                <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-[#1e3a5f] via-[#2563EB] to-[#3b82f6] rounded-sm overflow-hidden mb-5">
+                  {/* Subtle pattern on image placeholder */}
+                  <div
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                      backgroundImage:
+                        'repeating-linear-gradient(135deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 21px)',
+                    }}
+                  />
+                  <div className="absolute bottom-4 left-4">
+                    <Badge variant="info" size="md">
+                      {PLACEHOLDER_ARTICLES[0].category}
+                    </Badge>
+                  </div>
+                </div>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400 mb-2">
+                  {PLACEHOLDER_ARTICLES[0].date}
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold text-[#0F1B3D] leading-snug mb-3 group-hover:text-[#2563EB] transition-colors duration-200">
+                  {PLACEHOLDER_ARTICLES[0].title}
+                </h3>
+                <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3">
+                  {PLACEHOLDER_ARTICLES[0].excerpt}
+                </p>
+              </Link>
+            </motion.div>
+
+            {/* Two smaller articles stacked */}
+            <div className="flex flex-col gap-6">
+              {PLACEHOLDER_ARTICLES.slice(1).map((article) => (
+                <motion.div key={article.id} variants={fadeUp} className="flex-1">
+                  <Link
+                    href={article.href}
+                    className="group flex gap-5 h-full items-start"
+                  >
+                    {/* Small image placeholder */}
+                    <div className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 bg-gradient-to-br from-gray-200 to-gray-300 rounded-sm relative overflow-hidden">
+                      <div
+                        className="absolute inset-0 opacity-20"
+                        style={{
+                          backgroundImage:
+                            article.id === 2
+                              ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
+                              : 'linear-gradient(135deg, #8B5CF6 0%, #7c3aed 100%)',
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0 py-1">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400 mb-1.5">
+                        {article.date}
+                      </p>
+                      <h3 className="text-base font-bold text-[#0F1B3D] leading-snug mb-2 group-hover:text-[#2563EB] transition-colors duration-200 line-clamp-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
+                        {article.excerpt}
+                      </p>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Mobile: show link below */}
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="md:hidden mt-8"
+          >
+            <Link
+              href="/actualites"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#1d4ed8] transition-colors"
+            >
+              Toutes les actualités
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ========================================
+          SECTION 6 — Ecosystem Partners
+          Clean horizontal flow, light gray background
+          ======================================== */}
+      <section className="bg-[#F5F5F5] py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-10">
+              Ils font le ferroviaire de demain
+            </p>
+
+            {/* Row 1 */}
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 mb-4">
+              {PARTNERS_ROW_1.map((partner, i) => (
+                <span key={partner} className="flex items-center gap-3">
+                  <span className="text-base sm:text-lg font-bold text-gray-400 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
+                    {partner}
+                  </span>
+                  {i < PARTNERS_ROW_1.length - 1 && (
+                    <span className="text-gray-300 select-none" aria-hidden="true">&middot;</span>
+                  )}
+                </span>
+              ))}
+            </div>
+
+            {/* Row 2 */}
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
+              {PARTNERS_ROW_2.map((partner, i) => (
+                <span key={partner} className="flex items-center gap-3">
+                  <span className="text-base sm:text-lg font-bold text-gray-400 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
+                    {partner}
+                  </span>
+                  {i < PARTNERS_ROW_2.length - 1 && (
+                    <span className="text-gray-300 select-none" aria-hidden="true">&middot;</span>
+                  )}
+                </span>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link
+                href="/le-corifer#les-acteurs"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#1d4ed8] transition-colors"
+              >
+                Voir l&apos;écosystème complet
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ========================================
+          SECTION 7 — CTA (Split Design)
+          Dark left / Electric blue right
+          ======================================== */}
+      <section className="relative">
+        <div className="grid md:grid-cols-2">
+          {/* Left panel - dark */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+            className="bg-[#0F1B3D] px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center"
+          >
+            <div>
+              <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-extrabold text-white leading-snug tracking-tight max-w-md">
+                Vous avez un projet d&apos;innovation ferroviaire&nbsp;?
+              </h2>
+              <p className="mt-4 text-gray-400 text-base leading-relaxed max-w-sm">
+                Le CORIFER accompagne les acteurs de la filière dans le
+                montage et le financement de projets de recherche.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right panel - electric blue */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-[#2563EB] px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center justify-center md:justify-start"
+          >
+            <div className="text-center md:text-left">
+              <p className="text-white/80 text-base mb-6 font-medium">
+                Prenons contact pour en discuter.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 bg-white text-[#2563EB] font-bold px-8 py-4 rounded-sm text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg shadow-black/10"
+              >
+                Contactez-nous
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

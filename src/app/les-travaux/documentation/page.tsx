@@ -181,35 +181,14 @@ export default function DocumentationPage() {
 
   return (
     <>
-      {/* ============ Hero ============ */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0F1B3D 0%, #1E3A8A 100%)' }}
-      >
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10" aria-hidden="true">
-          <div
-            className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }}
-          />
-          <div
-            className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #10B981 0%, transparent 70%)' }}
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      {/* ============ Hero - Minimal breadcrumb header ============ */}
+      <section className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
           {/* Breadcrumb */}
-          <motion.nav
-            aria-label="Fil d'Ariane"
-            className="mb-6"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <ol className="flex items-center gap-2 text-sm text-blue-200">
+          <nav aria-label="Fil d'Ariane" className="mb-4">
+            <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-[#0F1B3D] transition-colors">
                   Accueil
                 </Link>
               </li>
@@ -217,36 +196,25 @@ export default function DocumentationPage() {
                 <ChevronRight className="w-4 h-4" />
               </li>
               <li>
-                <Link href="/les-travaux" className="hover:text-white transition-colors">
+                <Link href="/les-travaux" className="hover:text-[#0F1B3D] transition-colors">
                   Les travaux
                 </Link>
               </li>
               <li aria-hidden="true">
                 <ChevronRight className="w-4 h-4" />
               </li>
-              <li className="text-white font-medium" aria-current="page">
+              <li className="text-[#0F1B3D] font-medium" aria-current="page">
                 Documentation
               </li>
             </ol>
-          </motion.nav>
+          </nav>
 
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+          <h1 className="text-2xl md:text-3xl font-bold text-[#0F1B3D] tracking-tight">
             Documentation
-          </motion.h1>
-
-          <motion.p
-            className="mt-4 text-lg md:text-xl text-blue-100 max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          </h1>
+          <p className="mt-1.5 text-base text-gray-500">
             Notes de position, rapports, études et présentations du CORIFER
-          </motion.p>
+          </p>
         </div>
       </section>
 

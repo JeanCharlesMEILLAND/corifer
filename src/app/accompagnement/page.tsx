@@ -160,24 +160,9 @@ const SERVICES: ServiceCard[] = [
 export default function AccompagnementPage() {
   return (
     <>
-      {/* ===== Hero Banner ===== */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0F1B3D 0%, #1E3A8A 100%)' }}
-      >
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }}
-          />
-          <div
-            className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #10B981 0%, transparent 70%)' }}
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      {/* ===== Hero Banner - Soft blue-tinted ===== */}
+      <section className="bg-[#EFF6FF] border-b border-blue-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           <motion.nav
             aria-label="Fil d'Ariane"
             className="mb-6"
@@ -185,9 +170,9 @@ export default function AccompagnementPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <ol className="flex items-center gap-2 text-sm text-blue-200">
+            <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-[#0F1B3D] transition-colors">
                   Accueil
                 </Link>
               </li>
@@ -196,29 +181,34 @@ export default function AccompagnementPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </li>
-              <li className="text-white font-medium" aria-current="page">
+              <li className="text-[#0F1B3D] font-medium" aria-current="page">
                 Accompagnement
               </li>
             </ol>
           </motion.nav>
 
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
+          <motion.div
+            className="flex items-start gap-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Accompagnement
-          </motion.h1>
+            {/* Support/hand icon */}
+            <div className="hidden sm:flex flex-shrink-0 w-14 h-14 rounded-2xl bg-[#2563EB]/10 items-center justify-center mt-1">
+              <svg className="w-7 h-7 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
+              </svg>
+            </div>
 
-          <motion.p
-            className="mt-4 text-lg md:text-xl text-blue-100 max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Decouvrez nos dispositifs de soutien a l&apos;innovation ferroviaire
-          </motion.p>
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F1B3D] tracking-tight">
+                Accompagnement
+              </h1>
+              <p className="mt-3 text-lg md:text-xl text-gray-500 max-w-2xl">
+                Decouvrez nos dispositifs de soutien a l&apos;innovation ferroviaire
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 

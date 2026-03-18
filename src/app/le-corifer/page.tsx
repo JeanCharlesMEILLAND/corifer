@@ -234,43 +234,50 @@ export default function LeCoriferPage() {
   return (
     <>
       {/* ========================================
-          Hero Banner
+          Hero Banner - Light with rail pattern
           ======================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1B3D] via-[#1E3A8A] to-[#0F1B3D]">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#2563EB] blur-[120px] -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#06B6D4] blur-[100px] translate-y-1/2 -translate-x-1/4" />
-        </div>
+      <section className="relative overflow-hidden bg-white">
+        {/* Subtle rail-pattern CSS background */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(90deg, #0F1B3D 0px, #0F1B3D 4px, transparent 4px, transparent 60px), repeating-linear-gradient(0deg, transparent 0px, transparent 14px, #0F1B3D 14px, #0F1B3D 16px, transparent 16px, transparent 30px)',
+            backgroundSize: '60px 30px',
+          }}
+          aria-hidden="true"
+        />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           {/* Breadcrumb */}
-          <nav aria-label="Fil d'ariane" className="mb-8">
-            <ol className="flex items-center gap-2 text-sm text-white/60">
+          <nav aria-label="Fil d'ariane" className="mb-6">
+            <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
               <li>
-                <Link href="/" className="hover:text-white/90 transition-colors">
+                <Link href="/" className="hover:text-[#0F1B3D] transition-colors">
                   Accueil
                 </Link>
               </li>
               <li aria-hidden="true">
                 <ChevronRight className="h-4 w-4" />
               </li>
-              <li className="text-white font-medium">Le CORIFER</li>
+              <li className="text-[#0F1B3D] font-medium">Le CORIFER</li>
             </ol>
           </nav>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
-              Le{' '}
-              <span className="text-gradient-electric bg-gradient-to-r from-[#60A5FA] to-[#06B6D4] bg-clip-text text-transparent">
-                CORIFER
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F1B3D] tracking-tight mb-4">
+              Le CORIFER
             </h1>
-            <p className="max-w-2xl text-lg md:text-xl text-white/80 leading-relaxed">
+            {/* Gradient accent line */}
+            <div
+              className="h-1 w-24 rounded-full mb-6"
+              style={{ background: 'linear-gradient(90deg, #2563EB, #06B6D4)' }}
+            />
+            <p className="max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
               {SITE_CONFIG.fullName}. L&apos;instance nationale de coordination de la
               recherche et de l&apos;innovation au service de la filiere ferroviaire
               francaise.
@@ -279,10 +286,10 @@ export default function LeCoriferPage() {
 
           {/* Quick nav pills */}
           <motion.div
-            className="mt-10 flex flex-wrap gap-3"
-            initial={{ opacity: 0, y: 20 }}
+            className="mt-8 flex flex-wrap gap-3"
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
           >
             {[
               { label: 'Qui sommes-nous ?', href: '#qui-sommes-nous' },
@@ -293,14 +300,16 @@ export default function LeCoriferPage() {
               <a
                 key={pill.href}
                 href={pill.href}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-[#F8FAFC] px-5 py-2.5 text-sm font-medium text-[#0F1B3D] hover:bg-[#EFF6FF] hover:border-[#2563EB]/30 transition-colors"
               >
                 {pill.label}
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-4 w-4 text-[#6B7280]" />
               </a>
             ))}
           </motion.div>
         </div>
+        {/* Bottom border */}
+        <div className="h-px bg-gray-200" />
       </section>
 
       {/* ========================================

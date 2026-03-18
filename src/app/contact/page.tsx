@@ -136,24 +136,18 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* ============ Hero ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1B3D] via-[#162650] to-[#1a3068] py-20 md:py-28">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#2563EB]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#10B981]/8 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* ============ Hero - Minimal title section ============ */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#0F1B3D] tracking-tight">
               Contact
             </h1>
-            <p className="mt-5 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-2 text-base md:text-lg text-gray-500">
               Une question ? Un projet ? Contactez-nous.
             </p>
           </motion.div>

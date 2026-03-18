@@ -229,24 +229,9 @@ export default function ActualitesPage() {
 
   return (
     <>
-      {/* ===== Hero Banner ===== */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0F1B3D 0%, #1E3A8A 100%)' }}
-      >
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }}
-          />
-          <div
-            className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #06B6D4 0%, transparent 70%)' }}
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      {/* ===== Hero Banner - White with left accent bar ===== */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           <motion.nav
             aria-label="Fil d'Ariane"
             className="mb-6"
@@ -254,9 +239,9 @@ export default function ActualitesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <ol className="flex items-center gap-2 text-sm text-blue-200">
+            <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-[#0F1B3D] transition-colors">
                   Accueil
                 </Link>
               </li>
@@ -265,29 +250,42 @@ export default function ActualitesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </li>
-              <li className="text-white font-medium" aria-current="page">
+              <li className="text-[#0F1B3D] font-medium" aria-current="page">
                 Actualites
               </li>
             </ol>
           </motion.nav>
 
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Actualites
-          </motion.h1>
+          <div className="flex items-stretch gap-6">
+            {/* Decorative vertical blue bar */}
+            <motion.div
+              className="hidden sm:block w-1.5 rounded-full flex-shrink-0"
+              style={{ background: 'linear-gradient(180deg, #2563EB, #06B6D4)' }}
+              initial={{ scaleY: 0, originY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            />
 
-          <motion.p
-            className="mt-4 text-lg md:text-xl text-blue-100 max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Suivez les dernieres actualites du CORIFER : evenements, annonces institutionnelles et articles d&apos;analyse.
-          </motion.p>
+            <div>
+              <motion.h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F1B3D] tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                Actualites
+              </motion.h1>
+
+              <motion.p
+                className="mt-3 text-lg md:text-xl text-gray-500 max-w-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Suivez les dernieres actualites du CORIFER : evenements, annonces institutionnelles et articles d&apos;analyse.
+              </motion.p>
+            </div>
+          </div>
         </div>
       </section>
 

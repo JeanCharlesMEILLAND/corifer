@@ -103,12 +103,20 @@ function AnimatedSection({ children, className = '', delay = 0 }: { children: Re
 export default function FeuilleDeRoutePage() {
   return (
     <>
-      {/* ============ Hero ============ */}
+      {/* ============ Hero - Dark with diagonal stripes ============ */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1B3D] via-[#162650] to-[#1a3068] py-24 md:py-32">
-        {/* Decorative background elements */}
+        {/* Diagonal CSS stripes pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.5) 20px, rgba(255,255,255,0.5) 22px)',
+          }}
+          aria-hidden="true"
+        />
+        {/* Decorative glow */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#10B981]/8 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/8 rounded-full blur-[100px]" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
@@ -117,13 +125,19 @@ export default function FeuilleDeRoutePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <span className="inline-block mb-4 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 border border-white/10">
-              Stratégie 2023-2030
-            </span>
+            {/* Prominent 2023-2030 badge */}
+            <motion.div
+              className="inline-flex items-center gap-3 mb-6 px-6 py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse" />
+              <span className="text-base font-bold text-white tracking-wide">Strategie 2023 &mdash; 2030</span>
+            </motion.div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
               La feuille de route
-              <br />
-              <span className="text-[#60A5FA]">2023-2030</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
               Stratégie nationale de recherche et d&apos;innovation ferroviaire, structurée autour de 4 axes pour positionner la France comme leader européen.

@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import { FileText, Folder, FlaskConical, CheckCircle2, Euro, Users, ArrowRight } from 'lucide-react'
+import { FileText, Folder, FlaskConical, CheckCircle2, Euro, Users, ArrowRight, ChevronRight } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 
 // ========================================
@@ -94,32 +94,80 @@ const STATS = [
 export default function LesTravauxPage() {
   return (
     <>
-      {/* ============ Hero ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1B3D] via-[#162650] to-[#1a3068] py-24 md:py-32">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#10B981]/8 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-        </div>
+      {/* ============ Hero - Light gray with stats overlay ============ */}
+      <section className="relative bg-[#F9FAFB] border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 pb-28 md:pb-36">
+          {/* Breadcrumb */}
+          <motion.nav
+            aria-label="Fil d'Ariane"
+            className="mb-6"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
+              <li>
+                <Link href="/" className="hover:text-[#0F1B3D] transition-colors">
+                  Accueil
+                </Link>
+              </li>
+              <li aria-hidden="true">
+                <ChevronRight className="w-4 h-4" />
+              </li>
+              <li className="text-[#0F1B3D] font-medium" aria-current="page">
+                Les travaux
+              </li>
+            </ol>
+          </motion.nav>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="inline-block mb-4 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 border border-white/10">
-              Recherche & Innovation
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-              Les travaux
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F1B3D] tracking-tight leading-tight">
+              Les <span className="text-[#2563EB]">travaux</span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-4 text-lg md:text-xl text-gray-500 max-w-2xl">
               Documentation, projets de recherche et résultats
             </p>
           </motion.div>
         </div>
+
+        {/* Stats cards overlapping bottom edge */}
+        <div className="absolute bottom-0 left-0 right-0 translate-y-1/2">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-4 gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              {[
+                { value: '12', label: 'Projets en cours', icon: FlaskConical },
+                { value: '8', label: 'Projets terminés', icon: CheckCircle2 },
+                { value: '42M\u20AC', label: 'Budget mobilisé', icon: Euro },
+                { value: '65', label: 'Partenaires', icon: Users },
+              ].map((stat) => {
+                const StatIcon = stat.icon
+                return (
+                  <div
+                    key={stat.label}
+                    className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 text-center"
+                  >
+                    <StatIcon className="w-5 h-5 text-[#2563EB] mx-auto mb-2" />
+                    <p className="text-2xl md:text-3xl font-extrabold text-[#0F1B3D] tracking-tight">{stat.value}</p>
+                    <p className="text-xs md:text-sm text-gray-500 mt-1">{stat.label}</p>
+                  </div>
+                )
+              })}
+            </motion.div>
+          </div>
+        </div>
       </section>
+
+      {/* Spacer for overlapping stats cards */}
+      <div className="h-20 md:h-24 bg-white" />
 
       {/* ============ Internal Navigation Cards ============ */}
       <section className="py-20 md:py-28 bg-white">

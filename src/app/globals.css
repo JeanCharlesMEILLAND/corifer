@@ -36,14 +36,14 @@
   --color-cyan-50: #ECFEFF;
   --color-cyan-100: #CFFAFE;
 
-  /* Steel / neutral */
-  --color-steel: #64748B;
+  /* Steel / neutral (adjusted for WCAG AA contrast) */
+  --color-steel: #4B5563;
   --color-steel-50: #F8FAFC;
   --color-steel-100: #F1F5F9;
   --color-steel-200: #E2E8F0;
   --color-steel-300: #CBD5E1;
-  --color-steel-400: #94A3B8;
-  --color-steel-500: #64748B;
+  --color-steel-400: #6B7280;
+  --color-steel-500: #4B5563;
   --color-steel-600: #475569;
   --color-steel-700: #334155;
   --color-steel-800: #1E293B;
@@ -57,7 +57,7 @@
 
   /* Background & foreground */
   --background: #FFFFFF;
-  --foreground: #0F172A;
+  --foreground: #111827;
 
   /* Gradients */
   --gradient-navy: linear-gradient(135deg, #0F1B3D 0%, #1E3A8A 100%);
@@ -143,13 +143,13 @@
   --color-cyan-800: #155E75;
   --color-cyan-900: #164E63;
 
-  --color-steel: #64748B;
+  --color-steel: #4B5563;
   --color-steel-50: #F8FAFC;
   --color-steel-100: #F1F5F9;
   --color-steel-200: #E2E8F0;
   --color-steel-300: #CBD5E1;
-  --color-steel-400: #94A3B8;
-  --color-steel-500: #64748B;
+  --color-steel-400: #6B7280;
+  --color-steel-500: #4B5563;
   --color-steel-600: #475569;
   --color-steel-700: #334155;
   --color-steel-800: #1E293B;
@@ -280,7 +280,12 @@ h6 {
 }
 
 p {
+  color: #374151;
   text-wrap: pretty;
+}
+
+small, .caption, .text-caption {
+  color: #6B7280;
 }
 
 /* ========================================
@@ -481,6 +486,75 @@ video {
 @keyframes scaleIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* ========================================
+   Railway-inspired Pattern
+   ======================================== */
+
+/* Subtle railway track pattern: two parallel rails with perpendicular sleepers */
+.rail-pattern {
+  position: relative;
+}
+
+.rail-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background:
+    /* Vertical rails (two parallel lines) */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48%,
+      var(--color-navy) 48%,
+      var(--color-navy) 48.5%,
+      transparent 48.5%,
+      transparent 51.5%,
+      var(--color-navy) 51.5%,
+      var(--color-navy) 52%,
+      transparent 52%,
+      transparent 100%
+    ),
+    /* Horizontal sleepers (perpendicular cross lines) */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 30px,
+      var(--color-navy) 30px,
+      var(--color-navy) 31px,
+      transparent 31px,
+      transparent 60px
+    );
+  background-size: 60px 60px;
+}
+
+/* ========================================
+   Diagonal Section Cut
+   ======================================== */
+
+.diagonal-cut {
+  clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+}
+
+.diagonal-cut-top {
+  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+}
+
+.diagonal-cut-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+}
+
+/* ========================================
+   Section Accent Border
+   ======================================== */
+
+.section-accent {
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(to bottom, #2563EB, #06B6D4) 1;
+  padding-left: 1.25rem;
 }
 
 /* Skip to content link (accessibility) */
