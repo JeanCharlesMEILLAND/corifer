@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { Brain, Leaf, Building, Trophy, Download, ArrowRight, Target, Users, Lightbulb, TrendingUp } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/SectionTitle'
@@ -104,7 +105,16 @@ export default function FeuilleDeRoutePage() {
   return (
     <>
       {/* ============ Hero - Dark with diagonal stripes ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1B3D] via-[#162650] to-[#1a3068] py-24 md:py-32">
+      <section className="relative overflow-hidden py-24 md:py-32">
+        {/* Background photo with overlay */}
+        <Image
+          src="/images/railway-aerial.jpg"
+          alt="Vue aérienne du réseau ferroviaire"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-[#0F1B3D]/80" />
         {/* Diagonal CSS stripes pattern */}
         <div
           className="absolute inset-0 opacity-[0.06]"
@@ -114,10 +124,6 @@ export default function FeuilleDeRoutePage() {
           }}
           aria-hidden="true"
         />
-        {/* Decorative glow */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/8 rounded-full blur-[100px]" />
-        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

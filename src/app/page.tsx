@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react'
 import { Counter } from '@/components/ui/Counter'
 import { Button } from '@/components/ui/Button'
@@ -165,38 +166,23 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Wide banner strip with railway aesthetic */}
+        {/* Wide photo banner strip */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="relative w-full h-48 sm:h-56 md:h-64 mt-auto"
+          className="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 mt-auto"
         >
-          {/* Steel-gradient base */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1e293b] via-[#334155] to-[#1e293b]" />
-          {/* Diagonal steel texture lines */}
-          <div
-            className="absolute inset-0 opacity-[0.08]"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255,255,255,0.15) 6px, rgba(255,255,255,0.15) 7px)',
-            }}
+          <Image
+            src="/images/hero-train.jpg"
+            alt="Train à grande vitesse - Innovation ferroviaire"
+            fill
+            className="object-cover"
+            priority
           />
-          {/* Horizontal rail lines */}
-          <div className="absolute inset-0 flex flex-col justify-center gap-12 px-0">
-            <div className="w-full h-[3px] bg-white/10" />
-            <div className="w-full h-[3px] bg-white/10" />
-          </div>
-          {/* Cross-ties (sleepers) - railway track pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(90deg, transparent, transparent 58px, rgba(255,255,255,0.4) 58px, rgba(255,255,255,0.4) 64px)',
-            }}
-          />
-          {/* Blue accent glow */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[120px] bg-[#2563EB]/10 blur-[80px] rounded-full" />
+          {/* Gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D]/60 via-[#0F1B3D]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB]/10 to-transparent" />
           {/* Bottom gradient fade into next section */}
           <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F0F4F8] to-transparent" />
         </motion.div>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   Compass,
@@ -368,7 +369,7 @@ export default function LeCoriferPage() {
               </div>
             </motion.div>
 
-            {/* Placeholder image area */}
+            {/* Railway station image */}
             <motion.div
               className="relative"
               initial={{ opacity: 0, x: 20 }}
@@ -376,15 +377,13 @@ export default function LeCoriferPage() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
             >
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#E8EAF0] to-[#C5CAD9] flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center mx-auto mb-4">
-                    <Building2 className="h-10 w-10 text-[#0F1B3D]/40" />
-                  </div>
-                  <p className="text-[#0F1B3D]/40 text-sm font-medium">
-                    Illustration CORIFER
-                  </p>
-                </div>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
+                <Image
+                  src="/images/train-station.jpg"
+                  alt="Gare ferroviaire moderne - CORIFER"
+                  fill
+                  className="object-cover"
+                />
               </div>
               {/* Decorative accent */}
               <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-2xl bg-[#2563EB]/10" />
