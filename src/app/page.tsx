@@ -152,7 +152,7 @@ export default function Home() {
               variants={fadeUp}
               className="mt-10 flex flex-wrap items-center justify-center gap-5"
             >
-              <Button href="/le-corifer" size="lg" variant="primary" className="shadow-lg shadow-[#2563EB]/25 text-base px-10 py-4">
+              <Button href="/le-corifer" size="lg" variant="secondary" className="shadow-lg shadow-[#0F1B3D]/30 !text-white text-base px-10 py-4">
                 Découvrir le CORIFER
               </Button>
               <Button href="/les-travaux/projets" size="lg" variant="outline" className="text-base px-10 py-4">
@@ -330,97 +330,106 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid md:grid-cols-5 gap-5"
+            className="grid md:grid-cols-3 gap-6"
           >
-            {/* Card 1 - La feuille de route (large, spans 3 cols) */}
-            <motion.div variants={fadeUp} className="md:col-span-3">
+            {/* Card 1 - La feuille de route */}
+            <motion.div variants={fadeUp}>
               <Link
                 href="/feuille-de-route"
-                className="group block h-full bg-[#EFF6FF] hover:bg-[#DBEAFE] transition-colors duration-300 p-8 md:p-10 rounded-sm relative overflow-hidden"
+                className="group block h-full rounded-xl overflow-hidden relative min-h-[380px]"
               >
-                {/* Timeline illustration (CSS drawn) */}
-                <div className="absolute right-6 top-6 bottom-6 w-[2px] bg-[#2563EB]/10 hidden md:block" aria-hidden="true">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]/30" />
-                  <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]/50" />
-                  <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]/70" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2563EB]" />
+                <Image
+                  src="/images/freight-containers.jpg"
+                  alt="Feuille de route ferroviaire"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#60A5FA] mb-3">
+                    Stratégie 2023 &mdash; 2030
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
+                    La feuille de route
+                  </h3>
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                    4 axes stratégiques pour orienter la R&amp;I ferroviaire française.
+                  </p>
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
+                    Consulter
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
-
-                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#2563EB] mb-4 block">
-                  Stratégie 2023 &mdash; 2030
-                </span>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-[#0F1B3D] mb-3 leading-tight max-w-md">
-                  La feuille de route
-                </h3>
-                <p className="text-gray-600 leading-relaxed max-w-lg mb-8 text-[15px]">
-                  Quatre axes stratégiques pour structurer et orienter la recherche
-                  et l&apos;innovation de la filière ferroviaire française.
-                  Trains intelligents, décarbonation, infrastructure résiliente et
-                  compétitivité industrielle.
-                </p>
-
-                <span className="inline-flex items-center text-sm font-bold text-[#2563EB] group-hover:gap-3 gap-2 transition-all duration-200">
-                  Consulter la feuille de route
-                  <ArrowRight className="w-4 h-4" />
-                </span>
               </Link>
             </motion.div>
 
-            {/* Right column - 2 stacked cards */}
-            <div className="md:col-span-2 flex flex-col gap-5">
-              {/* Card 2 - Les travaux */}
-              <motion.div variants={fadeUp} className="flex-1">
-                <Link
-                  href="/les-travaux"
-                  className="group block h-full bg-[#F0FDF4] hover:bg-[#DCFCE7] transition-colors duration-300 p-8 rounded-sm relative overflow-hidden"
-                >
-                  {/* Project count badge */}
-                  <div className="absolute top-6 right-6">
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#10B981]/10 text-[#10B981] font-extrabold text-sm">
-                      28
-                    </span>
-                  </div>
-
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#10B981] mb-4 block">
+            {/* Card 2 - Les travaux */}
+            <motion.div variants={fadeUp}>
+              <Link
+                href="/les-travaux"
+                className="group block h-full rounded-xl overflow-hidden relative min-h-[380px]"
+              >
+                <Image
+                  src="/images/freight-yard.jpg"
+                  alt="Projets de recherche ferroviaire"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/60 to-transparent" />
+                {/* Project count badge */}
+                <div className="absolute top-5 right-5">
+                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm text-white font-extrabold text-sm border border-white/30">
+                    28
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#6EE7B7] mb-3">
                     Projets & Recherche
                   </span>
-                  <h3 className="text-xl font-extrabold text-[#0F1B3D] mb-2 leading-tight">
+                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
                     Les travaux
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    Projets de recherche soutenus, documentation technique et
-                    publications de la filière.
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                    Projets soutenus, documentation technique et publications.
                   </p>
-                  <span className="inline-flex items-center text-sm font-bold text-[#10B981] group-hover:gap-3 gap-2 transition-all duration-200">
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
                     Découvrir
                     <ChevronRight className="w-4 h-4" />
                   </span>
-                </Link>
-              </motion.div>
+                </div>
+              </Link>
+            </motion.div>
 
-              {/* Card 3 - Accompagnement */}
-              <motion.div variants={fadeUp} className="flex-1">
-                <Link
-                  href="/accompagnement"
-                  className="group block h-full bg-[#FAF5FF] hover:bg-[#F3E8FF] transition-colors duration-300 p-8 rounded-sm relative overflow-hidden"
-                >
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8B5CF6] mb-4 block">
+            {/* Card 3 - Accompagnement */}
+            <motion.div variants={fadeUp}>
+              <Link
+                href="/accompagnement"
+                className="group block h-full rounded-xl overflow-hidden relative min-h-[380px]"
+              >
+                <Image
+                  src="/images/freight-moving.jpg"
+                  alt="Accompagnement et financement"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#C4B5FD] mb-3">
                     Soutien & Financement
                   </span>
-                  <h3 className="text-xl font-extrabold text-[#0F1B3D] mb-2 leading-tight">
+                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
                     Accompagnement
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    Appels à projets, AMI, mécanismes de financement pour
-                    l&apos;innovation ferroviaire.
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                    Appels à projets, AMI et mécanismes de financement.
                   </p>
-                  <span className="inline-flex items-center text-sm font-bold text-[#8B5CF6] group-hover:gap-3 gap-2 transition-all duration-200">
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
                     Explorer
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
-                </Link>
-              </motion.div>
-            </div>
+                </div>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -469,16 +478,15 @@ export default function Home() {
                 href={PLACEHOLDER_ARTICLES[0].href}
                 className="group block h-full"
               >
-                {/* Image placeholder with gradient */}
-                <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-[#1e3a5f] via-[#2563EB] to-[#3b82f6] rounded-sm overflow-hidden mb-5">
-                  {/* Subtle pattern on image placeholder */}
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage:
-                        'repeating-linear-gradient(135deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 21px)',
-                    }}
+                {/* Article image */}
+                <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden mb-5">
+                  <Image
+                    src="/images/news-cargo-sorting.jpg"
+                    alt={PLACEHOLDER_ARTICLES[0].title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <Badge variant="info" size="md">
                       {PLACEHOLDER_ARTICLES[0].category}
@@ -505,16 +513,13 @@ export default function Home() {
                     href={article.href}
                     className="group flex gap-5 h-full items-start"
                   >
-                    {/* Small image placeholder */}
-                    <div className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 bg-gradient-to-br from-gray-200 to-gray-300 rounded-sm relative overflow-hidden">
-                      <div
-                        className="absolute inset-0 opacity-20"
-                        style={{
-                          backgroundImage:
-                            article.id === 2
-                              ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
-                              : 'linear-gradient(135deg, #8B5CF6 0%, #7c3aed 100%)',
-                        }}
+                    {/* Small article image */}
+                    <div className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-sm relative overflow-hidden">
+                      <Image
+                        src={article.id === 2 ? '/images/news-freight-landscape.jpg' : '/images/news-locomotive.jpg'}
+                        alt={article.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="flex-1 min-w-0 py-1">
