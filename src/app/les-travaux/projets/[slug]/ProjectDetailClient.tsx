@@ -318,7 +318,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-20"
               style={{ background: axis?.color || '#2563EB' }}
             />
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#0F1B3D]/70 to-transparent" />
           </div>
 
           <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8">
@@ -348,10 +348,10 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F1B3D] tracking-tight leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight" style={{ color: '#ffffff' }}>
                   {project.acronym}
-                  <span className="text-gray-500 font-normal"> – </span>
-                  <span className="text-gray-600 font-bold">{project.title}</span>
+                  <span style={{ color: '#D1D5DB' }} className="font-normal"> – </span>
+                  <span style={{ color: '#E5E7EB' }} className="font-bold">{project.title}</span>
                 </h1>
                 <div className="flex flex-wrap items-center gap-3 mt-4">
                   <span
