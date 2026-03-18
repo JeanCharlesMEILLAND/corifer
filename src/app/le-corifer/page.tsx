@@ -363,7 +363,7 @@ export default function LeCoriferPage() {
                     className="rounded-xl bg-[#F8FAFC] border border-gray-100 p-4 text-center"
                   >
                     <div className="text-2xl font-bold text-[#2563EB]">{fact.value}</div>
-                    <div className="text-sm text-gray-500 mt-1">{fact.label}</div>
+                    <div className="text-sm text-gray-600 mt-1">{fact.label}</div>
                   </div>
                 ))}
               </div>
@@ -455,7 +455,7 @@ export default function LeCoriferPage() {
                       <p className="font-semibold text-[#0F1B3D] text-sm truncate">
                         {member.name}
                       </p>
-                      <p className="text-xs text-gray-500 truncate">{member.role}</p>
+                      <p className="text-xs text-gray-600 truncate">{member.role}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -603,7 +603,7 @@ export default function LeCoriferPage() {
           </motion.div>
 
           {filteredActors.length === 0 && (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-gray-600">
               Aucun acteur dans cette categorie.
             </div>
           )}

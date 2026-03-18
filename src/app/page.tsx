@@ -128,7 +128,7 @@ export default function Home() {
             {/* Full name */}
             <motion.p
               variants={fadeUp}
-              className="mt-5 text-lg sm:text-xl text-[#0F1B3D]/70 font-medium tracking-wide max-w-2xl mx-auto leading-relaxed"
+              className="mt-5 text-lg sm:text-xl text-[#0F1B3D]/80 font-medium tracking-wide max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Conseil d&apos;Orientation de la Recherche
@@ -140,7 +140,7 @@ export default function Home() {
             {/* Tagline */}
             <motion.p
               variants={fadeUp}
-              className="mt-8 text-base sm:text-lg text-gray-500 max-w-xl mx-auto leading-relaxed font-normal"
+              className="mt-8 text-base sm:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed font-normal"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Fédérer les acteurs, orienter la recherche et accélérer
@@ -270,7 +270,7 @@ export default function Home() {
                       <cite className="not-italic font-bold text-[#0F1B3D] text-base">
                         Lionel Pujol
                       </cite>
-                      <p className="text-sm text-gray-500 mt-0.5">
+                      <p className="text-sm text-gray-600 mt-0.5">
                         Chef de projet industrie ferroviaire, DGE
                       </p>
                     </div>
@@ -485,13 +485,13 @@ export default function Home() {
                     </Badge>
                   </div>
                 </div>
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400 mb-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-2">
                   {PLACEHOLDER_ARTICLES[0].date}
                 </p>
                 <h3 className="text-xl md:text-2xl font-bold text-[#0F1B3D] leading-snug mb-3 group-hover:text-[#2563EB] transition-colors duration-200">
                   {PLACEHOLDER_ARTICLES[0].title}
                 </h3>
-                <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3">
+                <p className="text-gray-600 text-[15px] leading-relaxed line-clamp-3">
                   {PLACEHOLDER_ARTICLES[0].excerpt}
                 </p>
               </Link>
@@ -518,13 +518,13 @@ export default function Home() {
                       />
                     </div>
                     <div className="flex-1 min-w-0 py-1">
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-400 mb-1.5">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-1.5">
                         {article.date}
                       </p>
                       <h3 className="text-base font-bold text-[#0F1B3D] leading-snug mb-2 group-hover:text-[#2563EB] transition-colors duration-200 line-clamp-2">
                         {article.title}
                       </h3>
-                      <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
+                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
                         {article.excerpt}
                       </p>
                     </div>
@@ -565,7 +565,7 @@ export default function Home() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-10">
+            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-10">
               Ils font le ferroviaire de demain
             </p>
 
@@ -573,7 +573,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 mb-4">
               {PARTNERS_ROW_1.map((partner, i) => (
                 <span key={partner} className="flex items-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-gray-400 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
+                  <span className="text-base sm:text-lg font-bold text-gray-500 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
                     {partner}
                   </span>
                   {i < PARTNERS_ROW_1.length - 1 && (
@@ -587,7 +587,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
               {PARTNERS_ROW_2.map((partner, i) => (
                 <span key={partner} className="flex items-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-gray-400 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
+                  <span className="text-base sm:text-lg font-bold text-gray-500 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
                     {partner}
                   </span>
                   {i < PARTNERS_ROW_2.length - 1 && (

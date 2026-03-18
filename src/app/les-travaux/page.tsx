@@ -54,7 +54,7 @@ function AnimatedCounter({ value, suffix = '', label, icon: Icon }: { value: num
       >
         {value}{suffix}
       </motion.p>
-      <p className="mt-2 text-sm md:text-base text-white/70 font-medium">{label}</p>
+      <p className="mt-2 text-sm md:text-base text-white/80 font-medium">{label}</p>
     </motion.div>
   )
 }
@@ -128,7 +128,7 @@ export default function LesTravauxPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F1B3D] tracking-tight leading-tight">
               Les <span className="text-[#2563EB]">travaux</span>
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-gray-500 max-w-2xl">
+            <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl">
               Documentation, projets de recherche et résultats
             </p>
           </motion.div>
@@ -157,7 +157,7 @@ export default function LesTravauxPage() {
                   >
                     <StatIcon className="w-5 h-5 text-[#2563EB] mx-auto mb-2" />
                     <p className="text-2xl md:text-3xl font-extrabold text-[#0F1B3D] tracking-tight">{stat.value}</p>
-                    <p className="text-xs md:text-sm text-gray-500 mt-1">{stat.label}</p>
+                    <p className="text-xs md:text-sm text-gray-600 mt-1">{stat.label}</p>
                   </div>
                 )
               })}
@@ -248,7 +248,7 @@ export default function LesTravauxPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                 Les travaux en chiffres
               </h2>
-              <p className="mt-3 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-3 text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
                 L&apos;activité de recherche et d&apos;innovation coordonnée par le CORIFER
               </p>
             </div>

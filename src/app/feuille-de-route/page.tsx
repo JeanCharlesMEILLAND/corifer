@@ -145,7 +145,7 @@ export default function FeuilleDeRoutePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
               La feuille de route
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
               Stratégie nationale de recherche et d&apos;innovation ferroviaire, structurée autour de 4 axes pour positionner la France comme leader européen.
             </p>
           </motion.div>
@@ -220,7 +220,7 @@ export default function FeuilleDeRoutePage() {
                       <h3 className="mt-4 text-sm font-bold text-[#0F1B3D] leading-tight">
                         {milestone.label}
                       </h3>
-                      <p className="mt-2 text-xs text-gray-500 leading-relaxed">
+                      <p className="mt-2 text-xs text-gray-600 leading-relaxed">
                         {milestone.description}
                       </p>
                     </div>
@@ -246,7 +246,7 @@ export default function FeuilleDeRoutePage() {
                       </div>
                       <div className="pt-2">
                         <h3 className="text-base font-bold text-[#0F1B3D]">{milestone.label}</h3>
-                        <p className="mt-1 text-sm text-gray-500 leading-relaxed">{milestone.description}</p>
+                        <p className="mt-1 text-sm text-gray-600 leading-relaxed">{milestone.description}</p>
                       </div>
                     </div>
                   </AnimatedSection>
@@ -306,7 +306,7 @@ export default function FeuilleDeRoutePage() {
 
                       {/* Priorities */}
                       <div className="mb-6 flex-1">
-                        <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
                           Priorités
                         </h4>
                         <ul className="space-y-2.5">
@@ -355,10 +355,10 @@ export default function FeuilleDeRoutePage() {
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Télécharger la feuille de route complète
                 </h2>
-                <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
+                <p className="text-white/80 max-w-xl mx-auto mb-8 leading-relaxed">
                   Accédez au document complet de la stratégie nationale de recherche et d&apos;innovation ferroviaire 2023-2030, incluant les fiches détaillées de chaque axe.
                 </p>
-                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white/70 rounded-xl text-sm font-medium cursor-default">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white/80 rounded-xl text-sm font-medium cursor-default">
                   <Download className="w-5 h-5" />
                   PDF bient&ocirc;t disponible
                 </span>

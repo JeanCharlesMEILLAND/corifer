@@ -277,7 +277,7 @@ export default function ActualitesPage() {
               </motion.h1>
 
               <motion.p
-                className="mt-3 text-lg md:text-xl text-gray-500 max-w-2xl"
+                className="mt-3 text-lg md:text-xl text-gray-600 max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -424,8 +424,8 @@ export default function ActualitesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                   </svg>
                 </div>
-                <p className="text-gray-500 text-lg">Aucun resultat trouve.</p>
-                <p className="text-gray-400 text-sm mt-1">Essayez de modifier vos criteres de recherche.</p>
+                <p className="text-gray-600 text-lg">Aucun resultat trouve.</p>
+                <p className="text-gray-500 text-sm mt-1">Essayez de modifier vos criteres de recherche.</p>
               </motion.div>
             ) : viewMode === 'grid' ? (
               <motion.div
@@ -461,7 +461,7 @@ export default function ActualitesPage() {
                     {/* Card Content */}
                     <div className="p-6">
                       <div className="flex items-center gap-3 mb-3">
-                        <time className="text-sm text-gray-500" dateTime={item.date}>
+                        <time className="text-sm text-gray-600" dateTime={item.date}>
                           {item.date}
                         </time>
                         <Badge variant={categoryBadgeVariant(item.category)} size="sm">
@@ -530,7 +530,7 @@ export default function ActualitesPage() {
                     {/* Card Content */}
                     <div className="flex-1 p-5 sm:p-6 flex flex-col justify-center">
                       <div className="flex items-center gap-3 mb-2">
-                        <time className="text-sm text-gray-500" dateTime={item.date}>
+                        <time className="text-sm text-gray-600" dateTime={item.date}>
                           {item.date}
                         </time>
                         <Badge variant={categoryBadgeVariant(item.category)} size="sm">
@@ -570,7 +570,7 @@ export default function ActualitesPage() {
 
         {/* Results count */}
         <motion.p
-          className="mt-8 text-sm text-gray-400 text-center"
+          className="mt-8 text-sm text-gray-500 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}

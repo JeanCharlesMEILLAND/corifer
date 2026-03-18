@@ -81,7 +81,7 @@ export function Tabs({ tabs, activeTab, onChange, className = '' }: TabsProps) {
               className={`relative px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-inset rounded-t-lg ${
                 isActive
                   ? 'text-[#2563EB]'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-600 hover:text-gray-700'
               }`}
             >
               {tab.label}

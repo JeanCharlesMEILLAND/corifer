@@ -139,7 +139,7 @@ function DocumentCard({ doc, index }: { doc: Document; index: number }) {
         </h3>
 
         {/* Date */}
-        <div className="flex items-center gap-1.5 mb-3 text-sm text-gray-400">
+        <div className="flex items-center gap-1.5 mb-3 text-sm text-gray-500">
           <Calendar className="w-3.5 h-3.5" />
           <span>{doc.date}</span>
         </div>
@@ -206,7 +206,7 @@ export default function DocumentationPage() {
           <h1 className="text-2xl md:text-3xl font-bold text-[#0F1B3D] tracking-tight">
             Documentation
           </h1>
-          <p className="mt-1.5 text-base text-gray-500">
+          <p className="mt-1.5 text-base text-gray-600">
             Notes de position, rapports, études et présentations du CORIFER
           </p>
         </div>

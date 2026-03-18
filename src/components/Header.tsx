@@ -102,7 +102,7 @@ export default function Header() {
                     className={`group relative inline-flex items-center gap-1 px-3 py-2 text-[13px] font-medium tracking-[0.02em] transition-colors ${
                       isActive(item)
                         ? 'text-[#0F1B3D]'
-                        : 'text-[#0F1B3D]/65 hover:text-[#0F1B3D]'
+                        : 'text-[#0F1B3D]/80 hover:text-[#0F1B3D]'
                     }`}
                   >
                     {item.label}
@@ -141,7 +141,7 @@ export default function Header() {
                               className={`block px-4 py-2.5 text-[13px] tracking-[0.01em] transition-colors ${
                                 pathname === child.href
                                   ? 'text-[#2563EB] font-medium'
-                                  : 'text-[#0F1B3D]/65 hover:text-[#0F1B3D] hover:bg-gray-50'
+                                  : 'text-[#0F1B3D]/80 hover:text-[#0F1B3D] hover:bg-gray-50'
                               }`}
                             >
                               {child.label}
@@ -202,7 +202,7 @@ export default function Header() {
           />
           <button
             type="button"
-            className="rounded-md p-1.5 text-[#0F1B3D]/60 hover:text-[#0F1B3D] transition-colors"
+            className="rounded-md p-1.5 text-[#0F1B3D]/80 hover:text-[#0F1B3D] transition-colors"
             onClick={closeMobileMenu}
             aria-label="Fermer le menu"
           >
@@ -253,7 +253,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={closeMobileMenu}
-                        className="block rounded-md px-3 py-2 text-[13px] tracking-[0.01em] text-[#0F1B3D]/50 hover:text-[#0F1B3D] transition-colors"
+                        className="block rounded-md px-3 py-2 text-[13px] tracking-[0.01em] text-[#0F1B3D]/80 hover:text-[#0F1B3D] transition-colors"
                       >
                         Tout voir
                       </Link>
@@ -265,7 +265,7 @@ export default function Header() {
                           className={`block rounded-md px-3 py-2 text-[13px] tracking-[0.01em] transition-colors ${
                             pathname === child.href
                               ? 'text-[#2563EB] font-medium'
-                              : 'text-[#0F1B3D]/50 hover:text-[#0F1B3D]'
+                              : 'text-[#0F1B3D]/80 hover:text-[#0F1B3D]'
                           }`}
                         >
                           {child.label}

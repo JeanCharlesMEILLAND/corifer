@@ -204,7 +204,7 @@ export default function AccompagnementPage() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F1B3D] tracking-tight">
                 Accompagnement
               </h1>
-              <p className="mt-3 text-lg md:text-xl text-gray-500 max-w-2xl">
+              <p className="mt-3 text-lg md:text-xl text-gray-600 max-w-2xl">
                 Decouvrez nos dispositifs de soutien a l&apos;innovation ferroviaire
               </p>
             </div>
@@ -261,7 +261,7 @@ export default function AccompagnementPage() {
                 </div>
 
                 {appel.deadline && (
-                  <div className="flex items-center gap-2 mb-3 text-sm text-gray-500">
+                  <div className="flex items-center gap-2 mb-3 text-sm text-gray-600">
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
@@ -297,8 +297,8 @@ export default function AccompagnementPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
             </div>
-            <p className="text-gray-500 font-medium mb-1">Aucun appel en cours actuellement</p>
-            <p className="text-sm text-gray-400">
+            <p className="text-gray-600 font-medium mb-1">Aucun appel en cours actuellement</p>
+            <p className="text-sm text-gray-500">
               Les prochains appels a projets seront publies ici. Abonnez-vous a notre newsletter pour etre informe.
             </p>
           </motion.div>

@@ -126,7 +126,7 @@ export default function Footer() {
                       <p className="text-sm font-medium text-white/90">
                         {contact.name}
                       </p>
-                      <p className="text-xs text-white/70">{contact.role}</p>
+                      <p className="text-xs text-white/80">{contact.role}</p>
                     </li>
                   ))}
                 </ul>
@@ -139,13 +139,13 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-5">
             <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-              <p className="text-xs text-white/70">
+              <p className="text-xs text-white/80">
                 &copy; {currentYear} {SITE_CONFIG.name}. Tous droits r&eacute;serv&eacute;s.
               </p>
               <div className="flex items-center gap-6">
                 <Link
                   href="/mentions-legales"
-                  className="group text-xs text-white/70 transition-colors duration-200 hover:text-white"
+                  className="group text-xs text-white/80 transition-colors duration-200 hover:text-white"
                 >
                   <span className="relative">
                     Mentions l&eacute;gales
@@ -154,7 +154,7 @@ export default function Footer() {
                 </Link>
                 <Link
                   href="/politique-de-confidentialite"
-                  className="group text-xs text-white/70 transition-colors duration-200 hover:text-white"
+                  className="group text-xs text-white/80 transition-colors duration-200 hover:text-white"
                 >
                   <span className="relative">
                     Politique de confidentialit&eacute;
