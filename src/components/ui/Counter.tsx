@@ -63,7 +63,7 @@ export function Counter({
     >
       <span
         ref={displayRef}
-        className="block text-4xl md:text-5xl font-bold text-[#2563EB] tabular-nums"
+        className="block text-3xl md:text-4xl font-bold text-[#2563EB] tabular-nums whitespace-nowrap"
         aria-label={`${prefix}${target.toLocaleString('fr-FR')}${suffix}`}
       >
         {prefix}0{suffix}

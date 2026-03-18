@@ -26,14 +26,15 @@ export default function Footer() {
             {/* Column 1: Logo + description + social */}
             <div>
               <Link href="/" className="inline-block" aria-label="Retour à l'accueil CORIFER">
-                <Image
-                  src="/images/logo-corifer.png"
-                  alt="CORIFER"
-                  width={180}
-                  height={60}
-                  className="brightness-0 invert"
-                  style={{ height: 'auto' }}
-                />
+                <div className="inline-block bg-white rounded-lg px-4 py-3">
+                  <Image
+                    src="/images/logo-corifer.png"
+                    alt="CORIFER"
+                    width={160}
+                    height={46}
+                    style={{ height: 'auto' }}
+                  />
+                </div>
               </Link>
               <p className="mt-5 text-sm leading-relaxed text-gray-300 max-w-xs">
                 {SITE_CONFIG.description}

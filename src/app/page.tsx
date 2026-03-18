@@ -212,7 +212,7 @@ export default function Home() {
                 {/* Counter 3 */}
                 <div className="relative p-6 md:p-8">
                   <div className="absolute top-0 left-6 right-6 h-[3px] bg-[#F59E0B] rounded-b-full" />
-                  <Counter target={150} suffix=" M€" label="Soutien de l'État" />
+                  <Counter target={150} suffix="M€" label="Soutien de l'État" />
                 </div>
                 {/* Counter 4 */}
                 <div className="relative p-6 md:p-8">
