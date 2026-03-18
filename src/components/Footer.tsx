@@ -32,7 +32,7 @@ export default function Footer() {
                   alt="CORIFER"
                   width={180}
                   height={60}
-                  className="brightness-0 invert"
+                  className=""
                   style={{ height: 'auto' }}
                 />
               </Link>

@@ -352,15 +352,10 @@ export default function FeuilleDeRoutePage() {
                 <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
                   Accédez au document complet de la stratégie nationale de recherche et d&apos;innovation ferroviaire 2023-2030, incluant les fiches détaillées de chaque axe.
                 </p>
-                <Button
-                  href="/documents/feuille-de-route-corifer-2023-2030.pdf"
-                  variant="primary"
-                  size="lg"
-                  className="bg-white text-[#0F1B3D] hover:bg-gray-100"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Télécharger le PDF
-                </Button>
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white/70 rounded-xl text-sm font-medium cursor-default">
+                  <Download className="w-5 h-5" />
+                  PDF bient&ocirc;t disponible
+                </span>
               </div>
             </div>
           </AnimatedSection>

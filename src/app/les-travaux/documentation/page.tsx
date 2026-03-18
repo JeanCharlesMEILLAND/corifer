@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { FileText, Download, Calendar, Filter, ChevronRight } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
-import { Button } from '@/components/ui/Button'
 
 // ========================================
 // Types
@@ -153,15 +152,10 @@ function DocumentCard({ doc, index }: { doc: Document; index: number }) {
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <span className="text-xs text-gray-400 font-medium">PDF - {doc.fileSize}</span>
-          <Button
-            href={`/documents/${doc.id}.pdf`}
-            variant="ghost"
-            size="sm"
-            className="gap-2 !px-3 !py-1.5"
-          >
-            <Download className="w-4 h-4" />
-            Télécharger
-          </Button>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-400">
+            <Download className="w-3.5 h-3.5" />
+            Bient&ocirc;t disponible
+          </span>
         </div>
       </div>
     </motion.div>
