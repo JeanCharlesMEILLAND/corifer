@@ -177,7 +177,7 @@ export default function DocumentationPage() {
     <>
       {/* ============ Hero - Minimal breadcrumb header ============ */}
       <section className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-8 md:py-10">
           {/* Breadcrumb */}
           <nav aria-label="Fil d'Ariane" className="mb-4">
             <ol className="flex items-center gap-2 text-sm text-[#6B7280]">
@@ -214,7 +214,7 @@ export default function DocumentationPage() {
 
       {/* ============ Filter & Documents ============ */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Filter bar */}
           <AnimatedSection>
             <div className="flex flex-wrap items-center gap-3 mb-12">

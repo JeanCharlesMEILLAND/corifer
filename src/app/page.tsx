@@ -91,7 +91,7 @@ export default function Home() {
         {/* Subtle dot grid pattern background */}
         <div className="absolute inset-0" aria-hidden="true">
           <div
-            className="absolute inset-0 opacity-[0.35]"
+            className="absolute inset-0 opacity-[0.15]"
             style={{
               backgroundImage:
                 'radial-gradient(circle, #cbd5e1 1px, transparent 1px)',
@@ -147,21 +147,17 @@ export default function Home() {
               l&apos;innovation pour construire le ferroviaire de demain.
             </motion.p>
 
-            {/* Buttons - intentionally different from each other */}
+            {/* Buttons */}
             <motion.div
               variants={fadeUp}
-              className="mt-10 flex flex-wrap items-center justify-center gap-4"
+              className="mt-10 flex flex-wrap items-center justify-center gap-5"
             >
-              <Button href="/le-corifer" size="lg" variant="primary">
+              <Button href="/le-corifer" size="lg" variant="primary" className="shadow-lg shadow-[#2563EB]/25 text-base px-10 py-4">
                 Découvrir le CORIFER
               </Button>
-              <Link
-                href="/les-travaux/projets"
-                className="group inline-flex items-center gap-2 text-[#0F1B3D] font-semibold text-lg hover:text-[#2563EB] transition-colors duration-200"
-              >
+              <Button href="/les-travaux/projets" size="lg" variant="outline" className="text-base px-10 py-4">
                 Voir les projets
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-              </Link>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
