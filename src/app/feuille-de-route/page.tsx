@@ -139,13 +139,13 @@ export default function FeuilleDeRoutePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <span className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse" />
-              <span className="text-base font-bold text-white tracking-wide">Strategie 2023 &mdash; 2030</span>
+              <span className="text-base font-bold text-white tracking-wide" style={{ color: '#ffffff' }}>Strategie 2023 &mdash; 2030</span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ color: '#ffffff' }}>
               La feuille de route
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed" style={{ color: '#D1D5DB' }}>
               Stratégie nationale de recherche et d&apos;innovation ferroviaire, structurée autour de 4 axes pour positionner la France comme leader européen.
             </p>
           </motion.div>
@@ -306,7 +306,7 @@ export default function FeuilleDeRoutePage() {
 
                       {/* Priorities */}
                       <div className="mb-6 flex-1">
-                        <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3" style={{ color: '#6B7280' }}>
                           Priorités
                         </h4>
                         <ul className="space-y-2.5">
@@ -350,15 +350,15 @@ export default function FeuilleDeRoutePage() {
 
               <div className="relative z-10">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm mb-6">
-                  <Download className="w-8 h-8 text-white" />
+                  <Download className="w-8 h-8 text-white" style={{ color: '#ffffff' }} />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ color: '#ffffff' }}>
                   Télécharger la feuille de route complète
                 </h2>
-                <p className="text-white/80 max-w-xl mx-auto mb-8 leading-relaxed">
+                <p className="text-white/80 max-w-xl mx-auto mb-8 leading-relaxed" style={{ color: '#D1D5DB' }}>
                   Accédez au document complet de la stratégie nationale de recherche et d&apos;innovation ferroviaire 2023-2030, incluant les fiches détaillées de chaque axe.
                 </p>
-                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white/80 rounded-xl text-sm font-medium cursor-default">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white/80 rounded-xl text-sm font-medium cursor-default" style={{ color: '#D1D5DB' }}>
                   <Download className="w-5 h-5" />
                   PDF bient&ocirc;t disponible
                 </span>

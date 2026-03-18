@@ -496,10 +496,10 @@ export default function LeCoriferPage() {
                       0{index + 1}
                     </span>
                     {/* Content */}
-                    <h3 className="text-xl font-bold text-[#0F1B3D] mb-3">
+                    <h3 className="text-xl font-bold text-[#0F1B3D] mb-3" style={{ color: '#111827' }}>
                       {mission.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed" style={{ color: '#4B5563' }}>
                       {mission.description}
                     </p>
                   </div>

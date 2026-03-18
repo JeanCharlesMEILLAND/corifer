@@ -346,16 +346,16 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/80 to-[#0F1B3D]/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#60A5FA] mb-3">
+                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#60A5FA] mb-3" style={{ color: '#93C5FD' }}>
                     Stratégie 2023 &mdash; 2030
                   </span>
-                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
+                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight" style={{ color: '#ffffff' }}>
                     La feuille de route
                   </h3>
-                  <p className="text-gray-200 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-200 text-sm leading-relaxed mb-4" style={{ color: '#D1D5DB' }}>
                     4 axes stratégiques pour orienter la R&amp;I ferroviaire française.
                   </p>
-                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200" style={{ color: '#ffffff' }}>
                     Consulter
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -383,16 +383,16 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#6EE7B7] mb-3">
+                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#6EE7B7] mb-3" style={{ color: '#93C5FD' }}>
                     Projets & Recherche
                   </span>
-                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
+                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight" style={{ color: '#ffffff' }}>
                     Les travaux
                   </h3>
-                  <p className="text-gray-200 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-200 text-sm leading-relaxed mb-4" style={{ color: '#D1D5DB' }}>
                     Projets soutenus, documentation technique et publications.
                   </p>
-                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200" style={{ color: '#ffffff' }}>
                     Découvrir
                     <ChevronRight className="w-4 h-4" />
                   </span>
@@ -414,16 +414,16 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/80 to-[#0F1B3D]/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#C4B5FD] mb-3">
+                  <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#C4B5FD] mb-3" style={{ color: '#93C5FD' }}>
                     Soutien & Financement
                   </span>
-                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
+                  <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight" style={{ color: '#ffffff' }}>
                     Accompagnement
                   </h3>
-                  <p className="text-gray-200 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-200 text-sm leading-relaxed mb-4" style={{ color: '#D1D5DB' }}>
                     Appels à projets, AMI et mécanismes de financement.
                   </p>
-                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200" style={{ color: '#ffffff' }}>
                     Explorer
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -493,7 +493,7 @@ export default function Home() {
                     </Badge>
                   </div>
                 </div>
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-2" style={{ color: '#6B7280' }}>
                   {PLACEHOLDER_ARTICLES[0].date}
                 </p>
                 <h3 className="text-xl md:text-2xl font-bold text-[#0F1B3D] leading-snug mb-3 group-hover:text-[#2563EB] transition-colors duration-200">
@@ -523,7 +523,7 @@ export default function Home() {
                       />
                     </div>
                     <div className="flex-1 min-w-0 py-1">
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-1.5">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-1.5" style={{ color: '#6B7280' }}>
                         {article.date}
                       </p>
                       <h3 className="text-base font-bold text-[#0F1B3D] leading-snug mb-2 group-hover:text-[#2563EB] transition-colors duration-200 line-clamp-2">
@@ -570,7 +570,7 @@ export default function Home() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-10">
+            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-10" style={{ color: '#6B7280' }}>
               Ils font le ferroviaire de demain
             </p>
 
@@ -578,7 +578,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 mb-4">
               {PARTNERS_ROW_1.map((partner, i) => (
                 <span key={partner} className="flex items-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-gray-500 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
+                  <span className="text-base sm:text-lg font-bold text-gray-500 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default" style={{ color: '#6B7280' }}>
                     {partner}
                   </span>
                   {i < PARTNERS_ROW_1.length - 1 && (
@@ -592,7 +592,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
               {PARTNERS_ROW_2.map((partner, i) => (
                 <span key={partner} className="flex items-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-gray-500 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default">
+                  <span className="text-base sm:text-lg font-bold text-gray-500 tracking-wide whitespace-nowrap hover:text-[#0F1B3D] transition-colors duration-200 cursor-default" style={{ color: '#6B7280' }}>
                     {partner}
                   </span>
                   {i < PARTNERS_ROW_2.length - 1 && (

@@ -329,14 +329,14 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <ol className="flex items-center gap-2 text-sm text-white/80">
-                <li><Link href="/" className="hover:text-white transition-colors">Accueil</Link></li>
+              <ol className="flex items-center gap-2 text-sm text-white/80" style={{ color: '#D1D5DB' }}>
+                <li><Link href="/" className="hover:text-white transition-colors" style={{ color: '#D1D5DB' }}>Accueil</Link></li>
                 <li aria-hidden="true"><ChevronRight className="w-4 h-4" /></li>
-                <li><Link href="/les-travaux" className="hover:text-white transition-colors">Les travaux</Link></li>
+                <li><Link href="/les-travaux" className="hover:text-white transition-colors" style={{ color: '#D1D5DB' }}>Les travaux</Link></li>
                 <li aria-hidden="true"><ChevronRight className="w-4 h-4" /></li>
-                <li><Link href="/les-travaux/projets" className="hover:text-white transition-colors">Projets</Link></li>
+                <li><Link href="/les-travaux/projets" className="hover:text-white transition-colors" style={{ color: '#D1D5DB' }}>Projets</Link></li>
                 <li aria-hidden="true"><ChevronRight className="w-4 h-4" /></li>
-                <li className="text-white font-medium" aria-current="page">{project.acronym}</li>
+                <li className="text-white font-medium" style={{ color: '#ffffff' }} aria-current="page">{project.acronym}</li>
               </ol>
             </motion.nav>
           </div>
@@ -376,23 +376,23 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           <AnimatedSection>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Statut</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500" style={{ color: '#6B7280' }}>Statut</span>
                 <Badge variant={project.status === 'en-cours' ? 'success' : 'default'} size="md" className="self-start">
                   {project.status === 'en-cours' ? 'En cours' : 'Terminé'}
                 </Badge>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">TRL actuel</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500" style={{ color: '#6B7280' }}>TRL actuel</span>
                 <Badge variant="info" size="md" className="self-start">TRL {project.trl}</Badge>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Lancement</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500" style={{ color: '#6B7280' }}>Lancement</span>
                 <div className="flex items-center gap-2 text-sm font-medium text-[#0F1B3D]">
                   <CalendarDays className="w-4 h-4 text-gray-500" />{project.startDate}
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Fin prévue</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500" style={{ color: '#6B7280' }}>Fin prévue</span>
                 <div className="flex items-center gap-2 text-sm font-medium text-[#0F1B3D]">
                   <CalendarDays className="w-4 h-4 text-gray-500" />{project.endDate}
                 </div>
@@ -662,11 +662,11 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               <h3 className="text-lg font-semibold text-[#0F1B3D] mb-4">Contact du projet</h3>
               <div className="bg-gradient-to-br from-[#0F1B3D] to-[#1a3068] rounded-xl p-6 text-white">
                 <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                  <span className="text-lg font-bold">{project.contact.name.split(' ').map(n => n[0]).join('').substring(0, 2)}</span>
+                  <span className="text-lg font-bold" style={{ color: '#ffffff' }}>{project.contact.name.split(' ').map(n => n[0]).join('').substring(0, 2)}</span>
                 </div>
-                <h4 className="text-lg font-semibold">{project.contact.name}</h4>
-                <p className="text-sm text-white/80 mb-4">{project.contact.role}</p>
-                <a href={`mailto:${project.contact.email}`} className="inline-flex items-center gap-2 text-sm font-medium text-[#60A5FA] hover:text-white transition-colors">
+                <h4 className="text-lg font-semibold" style={{ color: '#ffffff' }}>{project.contact.name}</h4>
+                <p className="text-sm text-white/80 mb-4" style={{ color: '#D1D5DB' }}>{project.contact.role}</p>
+                <a href={`mailto:${project.contact.email}`} className="inline-flex items-center gap-2 text-sm font-medium text-[#60A5FA] hover:text-white transition-colors" style={{ color: '#93C5FD' }}>
                   <Mail className="w-4 h-4" />{project.contact.email}
                 </a>
               </div>
@@ -722,8 +722,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             <div className="relative bg-gradient-to-br from-[#0F1B3D] to-[#1a3068] rounded-2xl p-10 md:p-14 text-center overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#2563EB]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
               <div className="relative z-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Vous souhaitez en savoir plus sur ce projet ?</h2>
-                <p className="text-white/80 max-w-xl mx-auto mb-8 leading-relaxed">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ color: '#ffffff' }}>Vous souhaitez en savoir plus sur ce projet ?</h2>
+                <p className="text-white/80 max-w-xl mx-auto mb-8 leading-relaxed" style={{ color: '#D1D5DB' }}>
                   Contactez l&apos;équipe du CORIFER pour échanger sur le projet {project.acronym} ou découvrir comment participer à nos travaux de recherche et d&apos;innovation.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

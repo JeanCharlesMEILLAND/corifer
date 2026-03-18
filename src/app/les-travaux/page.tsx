@@ -44,17 +44,18 @@ function AnimatedCounter({ value, suffix = '', label, icon: Icon }: { value: num
       className="text-center"
     >
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm mb-4">
-        <Icon className="w-7 h-7 text-white" />
+        <Icon className="w-7 h-7 text-white" style={{ color: '#ffffff' }} />
       </div>
       <motion.p
         className="text-4xl md:text-5xl font-extrabold text-white tracking-tight"
+        style={{ color: '#ffffff' }}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         {value}{suffix}
       </motion.p>
-      <p className="mt-2 text-sm md:text-base text-white/80 font-medium">{label}</p>
+      <p className="mt-2 text-sm md:text-base text-white/80 font-medium" style={{ color: '#D1D5DB' }}>{label}</p>
     </motion.div>
   )
 }
@@ -245,10 +246,10 @@ export default function LesTravauxPage() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <div className="w-12 h-1 bg-[#60A5FA] rounded-full mb-4 mx-auto" />
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight" style={{ color: '#ffffff' }}>
                 Les travaux en chiffres
               </h2>
-              <p className="mt-3 text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-3 text-lg text-white/80 max-w-2xl mx-auto leading-relaxed" style={{ color: '#D1D5DB' }}>
                 L&apos;activité de recherche et d&apos;innovation coordonnée par le CORIFER
               </p>
             </div>
