@@ -344,7 +344,7 @@ export default function Home() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/80 to-[#0F1B3D]/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
                   <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#60A5FA] mb-3">
                     Stratégie 2023 &mdash; 2030
@@ -352,7 +352,7 @@ export default function Home() {
                   <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
                     La feuille de route
                   </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-200 text-sm leading-relaxed mb-4">
                     4 axes stratégiques pour orienter la R&amp;I ferroviaire française.
                   </p>
                   <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
@@ -375,7 +375,7 @@ export default function Home() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/80 to-[#0F1B3D]/20" />
                 {/* Project count badge */}
                 <div className="absolute top-5 right-5">
                   <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm text-white font-extrabold text-sm border border-white/30">
@@ -389,7 +389,7 @@ export default function Home() {
                   <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
                     Les travaux
                   </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-200 text-sm leading-relaxed mb-4">
                     Projets soutenus, documentation technique et publications.
                   </p>
                   <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
@@ -412,7 +412,7 @@ export default function Home() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B3D] via-[#0F1B3D]/80 to-[#0F1B3D]/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
                   <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-[#C4B5FD] mb-3">
                     Soutien & Financement
@@ -420,7 +420,7 @@ export default function Home() {
                   <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
                     Accompagnement
                   </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-200 text-sm leading-relaxed mb-4">
                     Appels à projets, AMI et mécanismes de financement.
                   </p>
                   <span className="inline-flex items-center text-sm font-bold text-white group-hover:gap-3 gap-2 transition-all duration-200">
@@ -633,7 +633,7 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-extrabold text-white leading-snug tracking-tight max-w-md">
                 Vous avez un projet d&apos;innovation ferroviaire&nbsp;?
               </h2>
-              <p className="mt-4 text-white/80 text-base leading-relaxed max-w-sm">
+              <p className="mt-4 text-gray-300 text-base leading-relaxed max-w-sm">
                 Le CORIFER accompagne les acteurs de la filière dans le
                 montage et le financement de projets de recherche.
               </p>
@@ -649,7 +649,7 @@ export default function Home() {
             className="bg-[#2563EB] px-8 sm:px-12 lg:px-16 py-16 md:py-20 flex items-center justify-center md:justify-start"
           >
             <div className="text-center md:text-left">
-              <p className="text-white/80 text-base mb-6 font-medium">
+              <p className="text-white text-base mb-6 font-medium">
                 Prenons contact pour en discuter.
               </p>
               <Link
