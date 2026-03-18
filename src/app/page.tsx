@@ -628,7 +628,7 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-extrabold text-white leading-snug tracking-tight max-w-md">
                 Vous avez un projet d&apos;innovation ferroviaire&nbsp;?
               </h2>
-              <p className="mt-4 text-gray-400 text-base leading-relaxed max-w-sm">
+              <p className="mt-4 text-white/80 text-base leading-relaxed max-w-sm">
                 Le CORIFER accompagne les acteurs de la filière dans le
                 montage et le financement de projets de recherche.
               </p>
