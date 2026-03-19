@@ -439,8 +439,8 @@ export default function AccompagnementPage() {
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Un projet d&apos;innovation ferroviaire ?
               </h3>
-              <p className="text-blue-100 max-w-xl mx-auto mb-8 leading-relaxed">
-                Contactez l&apos;equipe du CORIFER pour echanger sur votre projet et identifier les dispositifs d&apos;accompagnement adaptes a vos besoins.
+              <p className="max-w-xl mx-auto mb-8 leading-relaxed" style={{ color: '#D1D5DB' }}>
+                Contactez l&apos;équipe du CORIFER pour échanger sur votre projet et identifier les dispositifs d&apos;accompagnement adaptés à vos besoins.
               </p>
               <Button href="/contact" variant="primary" size="lg" className="bg-white !text-[#0F1B3D] hover:bg-blue-50">
                 Contactez-nous
