@@ -17,7 +17,7 @@ export const SITE_CONFIG = {
     youtube: '#',
   },
   keyContacts: [
-    { name: 'Lionel Pujol', role: 'Chef de projet industrie ferroviaire', org: 'DGE - Ministère de l\'Économie' },
+    { name: 'Carole DESNOST', role: 'Présidente du CORIFER', org: 'Vice-Présidente du Directoire SNCF' },
     { name: 'Jean-Jacques Mogoro', role: 'Secrétaire CORIFER & Directeur Pôle Industrie', org: 'FIF' },
   ],
 } as const
@@ -41,7 +41,6 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Qui sommes-nous ?', href: '/le-corifer#qui-sommes-nous' },
       { label: 'Gouvernance', href: '/le-corifer#gouvernance' },
       { label: 'Rôle & missions', href: '/le-corifer#role-missions' },
-      { label: 'Les acteurs', href: '/le-corifer#les-acteurs' },
     ],
   },
   {

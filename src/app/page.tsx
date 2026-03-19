@@ -170,8 +170,8 @@ export default function Home() {
           className="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 mt-auto"
         >
           <Image
-            src="/images/hero-freight.jpg"
-            alt="Trains de fret ferroviaire - Vue aérienne"
+            src="/images/hero-inclusive.jpg"
+            alt="Train moderne - Innovation ferroviaire française"
             fill
             className="object-cover"
             priority
@@ -238,42 +238,51 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="flex flex-col md:flex-row items-start gap-6 md:gap-10">
-              {/* Large quotation mark */}
-              <div className="flex-shrink-0" aria-hidden="true">
-                <span
-                  className="block text-[8rem] md:text-[10rem] leading-none font-serif text-[#2563EB]/15 select-none"
-                  style={{ marginTop: '-2rem' }}
-                >
-                  &ldquo;
-                </span>
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              {/* President photo */}
+              <div className="flex-shrink-0">
+                <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-[#2563EB]/20 shadow-lg shadow-[#2563EB]/20">
+                  <Image
+                    src="/images/carole-desnost.jpg"
+                    alt="Carole DESNOST - Présidente du CORIFER"
+                    width={144}
+                    height={144}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               </div>
               {/* Quote text */}
               <div className="flex-1 min-w-0">
                 <blockquote>
+                  <div className="mb-4" aria-hidden="true">
+                    <span className="text-5xl font-serif text-[#2563EB]/20 leading-none select-none">&ldquo;</span>
+                  </div>
                   <p
                     className="text-xl sm:text-2xl md:text-[1.65rem] text-[#0F1B3D] font-medium italic leading-relaxed"
                     style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
                   >
-                    Le CORIFER incarne la volonté collective de la filière ferroviaire
-                    française de placer la recherche et l&apos;innovation au c&oelig;ur de sa
-                    stratégie. Notre ambition : faire du ferroviaire le mode de
-                    transport le plus innovant, le plus décarboné et le plus compétitif
-                    d&apos;Europe.
+                    Le CORIFER va établir une stratégie d&apos;innovation ambitieuse et
+                    pilotera la feuille de route de la filière.
                   </p>
-                  <footer className="mt-8 flex items-center gap-4">
-                    {/* Decorative avatar placeholder */}
-                    <div className="w-12 h-12 rounded-full bg-[#0F1B3D] flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold text-sm">LP</span>
-                    </div>
+                  <footer className="mt-8">
                     <div>
-                      <cite className="not-italic font-bold text-[#0F1B3D] text-base">
-                        Lionel Pujol
+                      <cite className="not-italic font-bold text-[#0F1B3D] text-lg">
+                        Carole DESNOST
                       </cite>
+                      <p className="text-sm font-semibold text-[#2563EB] mt-0.5">
+                        Présidente du CORIFER
+                      </p>
                       <p className="text-sm text-gray-600 mt-0.5">
-                        Chef de projet industrie ferroviaire, DGE
+                        Vice-Présidente du Directoire SNCF &mdash; Ambassadrice France 2030
                       </p>
                     </div>
+                    <Link
+                      href="/le-corifer#gouvernance"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#1d4ed8] transition-colors mt-4"
+                    >
+                      Découvrir la Présidente
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </footer>
                 </blockquote>
               </div>

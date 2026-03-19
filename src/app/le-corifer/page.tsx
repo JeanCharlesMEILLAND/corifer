@@ -5,16 +5,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
-  Compass,
-  Users,
-  Rocket,
-  Target,
   ChevronRight,
-  ExternalLink,
-  Building2,
-  FlaskConical,
-  Landmark,
-  Lightbulb,
+  ChevronDown,
+  Eye,
+  Users,
+  Award,
+  FileText,
+  Handshake,
+  Network,
 } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Card } from '@/components/ui/Card'
@@ -49,188 +47,153 @@ const staggerItem = {
 // Data
 // ========================================
 
-const keyContacts = [
-  {
-    name: 'Lionel Pujol',
-    role: 'Chef de projet industrie ferroviaire',
-    org: 'DGE - Ministere de l\'Economie',
-    title: 'President du CORIFER',
-    initials: 'LP',
-    color: 'bg-[#2563EB]',
-  },
-  {
-    name: 'Jean-Jacques Mogoro',
-    role: 'Directeur Pole Industrie',
-    org: 'FIF',
-    title: 'Secretaire du CORIFER',
-    initials: 'JM',
-    color: 'bg-[#0F1B3D]',
-  },
-]
+const president = {
+  name: 'Carole DESNOST',
+  role: 'Présidente du CORIFER',
+  subtitle: 'Vice-Présidente du Directoire SNCF – Ambassadrice France 2030',
+  initials: 'CD',
+  color: 'bg-gradient-to-br from-[#2563EB] to-[#0F1B3D]',
+}
 
-const governanceMembers = [
-  { name: 'SNCF', role: 'Operateur national', initials: 'SN', color: 'bg-[#64748B]' },
-  { name: 'RATP', role: 'Operateur transport urbain', initials: 'RA', color: 'bg-[#64748B]' },
-  { name: 'Alstom', role: 'Constructeur ferroviaire', initials: 'AL', color: 'bg-[#2563EB]' },
-  { name: 'DGITM', role: 'Direction generale des infrastructures', initials: 'DG', color: 'bg-[#10B981]' },
-  { name: 'DGRI', role: 'Direction generale de la recherche', initials: 'DR', color: 'bg-[#10B981]' },
-  { name: 'AIF', role: 'Agence de l\'innovation ferroviaire', initials: 'AI', color: 'bg-[#F59E0B]' },
+const secretary = {
+  name: 'Jean-Jacques Mogoro',
+  role: 'Secrétaire du CORIFER',
+  subtitle: 'Directeur Pôle Industrie, FIF',
+  initials: 'JM',
+  color: 'bg-[#0F1B3D]',
+}
+
+type CommitteeKey = 'copil' | 'rd' | 'pme'
+
+const committees: {
+  key: CommitteeKey
+  name: string
+  fullName: string
+  description: string
+  presidence?: string
+  fonctionnement: string
+  members: { name: string; org?: string }[]
+  invites?: { name: string; org?: string }[]
+}[] = [
+  {
+    key: 'copil',
+    name: 'CoPil',
+    fullName: 'Comité de Pilotage',
+    description:
+      'Prépare les évolutions des feuilles de route, assure le suivi macro des projets RDI, promeut les programmes structurants.',
+    fonctionnement: '2 réunions par an, décisions à l\'unanimité',
+    members: [
+      { name: 'SNCF' },
+      { name: 'RATP' },
+      { name: 'Alstom' },
+      { name: 'DGE' },
+      { name: 'DGITM' },
+      { name: 'DGRI' },
+      { name: 'ADEME' },
+      { name: 'Bpifrance' },
+      { name: 'SNCF Réseau' },
+      { name: 'Keolis' },
+      { name: 'Transdev' },
+      { name: 'FIF' },
+      { name: 'UTP' },
+      { name: 'EPSF' },
+    ],
+    invites: [
+      { name: 'Railenium', org: 'IRT' },
+      { name: 'AIF', org: 'Cluster' },
+      { name: 'I-Trans', org: 'Pôle' },
+      { name: 'CARA', org: 'Pôle' },
+    ],
+  },
+  {
+    key: 'rd',
+    name: 'R&D',
+    fullName: 'Comité R&D',
+    description:
+      'Bâtit la feuille de route R&I, émet un avis sur les projets, assure le suivi des projets cofinancés.',
+    presidence: 'Assurée par le/la Président(e) du COSS de l\'IRT Railenium',
+    fonctionnement: '3 à 4 réunions par an',
+    members: [
+      { name: 'Alstom' },
+      { name: 'SNCF' },
+      { name: 'SNCF Réseau' },
+      { name: 'RATP' },
+      { name: 'Railenium' },
+      { name: 'ADEME' },
+      { name: 'Bpifrance' },
+      { name: 'DGE' },
+      { name: 'DGITM' },
+      { name: 'DGRI' },
+    ],
+  },
+  {
+    key: 'pme',
+    name: 'PME',
+    fullName: 'Comité PME',
+    description:
+      'Favorise l\'innovation des PME, diffuse les opportunités, identifie les projets sous seuil France 2030, oriente vers les financeurs.',
+    presidence: 'Assurée par le/la Président(e) du Railway Business Cluster (RBC) de la FIF',
+    fonctionnement: '4 réunions par an',
+    members: [
+      { name: 'FIF (RBC)' },
+      { name: 'AIF' },
+      { name: 'Bpifrance' },
+      { name: 'ADEME' },
+      { name: 'DGE' },
+      { name: 'I-Trans' },
+      { name: 'CARA' },
+      { name: 'ID4Mobility' },
+    ],
+  },
 ]
 
 const missions = [
   {
-    icon: Compass,
-    title: 'Orienter',
+    icon: Eye,
+    title: 'Structurer et promouvoir une vision stratégique pour la filière',
     description:
-      'Definir les priorites strategiques de recherche et d\'innovation pour la filiere ferroviaire francaise, en coherence avec les enjeux europeens et les objectifs de decarbonation.',
+      'Définir les orientations de long terme pour la recherche et l\'innovation ferroviaire française, en lien avec les priorités nationales et européennes.',
   },
   {
     icon: Users,
-    title: 'Federer',
+    title: 'Mobiliser les industriels sur l\'innovation et favoriser les synergies entre acteurs',
     description:
-      'Rassembler l\'ensemble des acteurs publics et prives de la filiere : industriels, operateurs, centres de recherche, pouvoirs publics et poles de competitivite.',
+      'Rassembler les acteurs publics et privés de la filière pour construire des projets collaboratifs et renforcer la compétitivité collective.',
   },
   {
-    icon: Rocket,
-    title: 'Accelerer',
+    icon: Award,
+    title: 'Identifier et labelliser les projets structurants de filière',
     description:
-      'Soutenir le passage de la recherche fondamentale a l\'innovation operationnelle, en facilitant les collaborations et en identifiant les verrous technologiques.',
+      'Évaluer et sélectionner les projets à fort impact pour la filière, leur attribuer un label facilitant l\'accès aux financements publics.',
   },
   {
-    icon: Target,
-    title: 'Evaluer',
+    icon: FileText,
+    title: 'Participer à la constitution des AAP et des AMI',
     description:
-      'Suivre l\'avancement des projets de R&I, mesurer leur impact sur la competitivite de la filiere et formuler des recommandations pour les orientations futures.',
+      'Contribuer à l\'élaboration des appels à projets et appels à manifestation d\'intérêt en lien avec les opérateurs de l\'État.',
+  },
+  {
+    icon: Handshake,
+    title: 'Participer à l\'orientation vers les financements publics',
+    description:
+      'Accompagner les porteurs de projets dans l\'identification des dispositifs de financement adaptés (France 2030, ADEME, Bpifrance, ANR).',
+  },
+  {
+    icon: Network,
+    title: 'Gérer la relation de coordination entre les acteurs de filière industrielle',
+    description:
+      'Assurer l\'interface entre les différents échelons de gouvernance et les acteurs opérationnels pour garantir la cohérence des actions.',
   },
 ]
-
-type ActorCategory = 'all' | 'clusters' | 'irt' | 'operateurs' | 'poles'
-
-const categories: { key: ActorCategory; label: string; color: string; badgeVariant: 'info' | 'success' | 'warning' | 'purple' }[] = [
-  { key: 'all', label: 'Tous', color: '', badgeVariant: 'info' },
-  { key: 'clusters', label: 'Clusters', color: 'text-[#2563EB]', badgeVariant: 'info' },
-  { key: 'irt', label: 'IRT', color: 'text-[#10B981]', badgeVariant: 'success' },
-  { key: 'operateurs', label: 'Operateurs', color: 'text-[#F59E0B]', badgeVariant: 'warning' },
-  { key: 'poles', label: 'Poles de competitivite', color: 'text-[#8B5CF6]', badgeVariant: 'purple' },
-]
-
-const actors: {
-  name: string
-  category: ActorCategory
-  description: string
-  url: string
-}[] = [
-  // Clusters
-  {
-    name: 'AIF',
-    category: 'clusters',
-    description:
-      'Agence de l\'Innovation Ferroviaire, cluster national dedie a l\'innovation collaborative dans le secteur ferroviaire.',
-    url: 'https://www.aif-ferroviaire.fr',
-  },
-  {
-    name: 'Ferrocampus',
-    category: 'clusters',
-    description:
-      'Campus ferroviaire situe a Saintes, centre de formation et d\'innovation pour les metiers du ferroviaire.',
-    url: 'https://www.ferrocampus.fr',
-  },
-  {
-    name: 'TOTEM',
-    category: 'clusters',
-    description:
-      'Cluster regional dedie aux technologies de transport, favorisant les synergies entre acteurs industriels et academiques.',
-    url: '#',
-  },
-  {
-    name: 'MecateamCluster',
-    category: 'clusters',
-    description:
-      'Cluster specialise dans la maintenance et la construction des infrastructures ferroviaires, base a Montceau-les-Mines.',
-    url: 'https://www.mecateamcluster.org',
-  },
-  // IRT
-  {
-    name: 'Railenium',
-    category: 'irt',
-    description:
-      'Institut de Recherche Technologique dedie au ferroviaire, couvrant l\'infrastructure, le materiel roulant et les systemes.',
-    url: 'https://www.railenium.eu',
-  },
-  {
-    name: 'Jules Verne',
-    category: 'irt',
-    description:
-      'IRT specialise dans les technologies avancees de fabrication, contribuant a l\'allegement et la durabilite des structures ferroviaires.',
-    url: 'https://www.irt-jules-verne.fr',
-  },
-  {
-    name: 'Saint-Exupery',
-    category: 'irt',
-    description:
-      'IRT couvrant l\'aeronautique, l\'espace et les systemes embarques, avec des applications transverses au ferroviaire.',
-    url: 'https://www.irt-saintexupery.com',
-  },
-  // Operateurs
-  {
-    name: 'ADEME',
-    category: 'operateurs',
-    description:
-      'Agence de la transition ecologique, financeuse de projets de R&I en faveur de la mobilite durable et decarbonee.',
-    url: 'https://www.ademe.fr',
-  },
-  {
-    name: 'Bpifrance',
-    category: 'operateurs',
-    description:
-      'Banque publique d\'investissement, soutenant l\'innovation des entreprises de la filiere ferroviaire via des aides et financements.',
-    url: 'https://www.bpifrance.fr',
-  },
-  // Poles de competitivite
-  {
-    name: 'CARA',
-    category: 'poles',
-    description:
-      'Pole de competitivite European Cluster for Mobility of the Future, base en Auvergne-Rhone-Alpes.',
-    url: 'https://www.pole-cara.com',
-  },
-  {
-    name: 'ID4Mobility',
-    category: 'poles',
-    description:
-      'Pole de competitivite dedie aux solutions de mobilite innovantes, couvrant le ferroviaire, l\'automobile et les transports intelligents.',
-    url: 'https://www.id4mobility.org',
-  },
-  {
-    name: 'I-Trans',
-    category: 'poles',
-    description:
-      'Pole de competitivite des transports terrestres durables, au coeur de la filiere ferroviaire dans les Hauts-de-France.',
-    url: 'https://www.i-trans.org',
-  },
-]
-
-const categoryIcons: Record<string, typeof Building2> = {
-  clusters: Building2,
-  irt: FlaskConical,
-  operateurs: Landmark,
-  poles: Lightbulb,
-}
 
 // ========================================
 // Component
 // ========================================
 
 export default function LeCoriferPage() {
-  const [activeFilter, setActiveFilter] = useState<ActorCategory>('all')
+  const [activeCommittee, setActiveCommittee] = useState<CommitteeKey>('copil')
 
-  const filteredActors =
-    activeFilter === 'all'
-      ? actors
-      : actors.filter((a) => a.category === activeFilter)
-
-  const getCategoryMeta = (cat: ActorCategory) =>
-    categories.find((c) => c.key === cat)!
+  const currentCommittee = committees.find((c) => c.key === activeCommittee)!
 
   return (
     <>
@@ -280,8 +243,8 @@ export default function LeCoriferPage() {
             />
             <p className="max-w-2xl text-lg md:text-xl text-gray-600 leading-relaxed">
               {SITE_CONFIG.fullName}. L&apos;instance nationale de coordination de la
-              recherche et de l&apos;innovation au service de la filiere ferroviaire
-              francaise.
+              recherche et de l&apos;innovation au service de la filière ferroviaire
+              française.
             </p>
           </motion.div>
 
@@ -295,8 +258,7 @@ export default function LeCoriferPage() {
             {[
               { label: 'Qui sommes-nous ?', href: '#qui-sommes-nous' },
               { label: 'Gouvernance', href: '#gouvernance' },
-              { label: 'Role & missions', href: '#role-missions' },
-              { label: 'Les acteurs', href: '#les-acteurs' },
+              { label: 'Rôle & missions', href: '#role-missions' },
             ].map((pill) => (
               <a
                 key={pill.href}
@@ -321,7 +283,7 @@ export default function LeCoriferPage() {
           <motion.div {...fadeInUp}>
             <SectionTitle
               title="Qui sommes-nous ?"
-              subtitle="Le CORIFER federe l'ensemble des acteurs de la filiere ferroviaire francaise autour d'une ambition commune : faire du rail un levier majeur de la transition ecologique."
+              subtitle="Le CORIFER est une instance de dialogue entre les industriels de la filière et les pouvoirs publics."
             />
           </motion.div>
 
@@ -334,29 +296,28 @@ export default function LeCoriferPage() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
-              <p className="text-gray-600 leading-relaxed">
-                Le <strong className="text-[#0F1B3D]">Conseil d&apos;Orientation de la Recherche et de
-                l&apos;Innovation de la filiere FERroviaire (CORIFER)</strong> a ete cree pour
-                coordonner et orienter les efforts de recherche et d&apos;innovation (R&I) dans le
-                secteur ferroviaire francais.
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Le <strong className="text-[#0F1B3D]">CORIFER</strong> est une instance de dialogue
+                entre les industriels de la filière et les pouvoirs publics. Il est coordonné par la{' '}
+                <strong className="text-[#0F1B3D]">Fédération des Industries Ferroviaires (FIF)</strong>{' '}
+                qui en assure le secrétariat.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Il rassemble les acteurs cles de l&apos;ecosysteme : industriels, operateurs de
-                transport, centres de recherche, instituts de recherche technologique (IRT), poles
-                de competitivite, clusters et representants de l&apos;Etat.
+                Il est présidé par une personnalité qualifiée issue du monde industriel, élue pour un
+                mandat de 2 ans renouvelable.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Place sous l&apos;egide du Ministere de l&apos;Economie (DGE) et porte par la
-                Federation des Industries Ferroviaires (FIF), le CORIFER elabore la feuille de
-                route strategique de R&I de la filiere et en assure le suivi.
+                Le CORIFER élabore la feuille de route stratégique de recherche et d&apos;innovation
+                de la filière ferroviaire française, identifie et labellise les projets structurants,
+                et coordonne les acteurs publics et privés de l&apos;écosystème.
               </p>
 
               {/* Key facts */}
               <div className="grid sm:grid-cols-3 gap-4 pt-4">
                 {[
-                  { value: '2015', label: 'Annee de creation' },
-                  { value: 'National', label: 'Perimetre' },
-                  { value: 'R&I', label: 'Mandat strategique' },
+                  { value: '2015', label: 'Année de création' },
+                  { value: 'National', label: 'Périmètre' },
+                  { value: 'R&I', label: 'Mandat stratégique' },
                 ].map((fact) => (
                   <div
                     key={fact.label}
@@ -400,103 +361,208 @@ export default function LeCoriferPage() {
           <motion.div {...fadeInUp}>
             <SectionTitle
               title="Gouvernance"
-              subtitle="Le CORIFER est pilote par des representants de l'Etat et de la filiere industrielle, garants de la coherence strategique."
+              subtitle="Le CORIFER est piloté par une Présidente élue et structuré en trois comités spécialisés."
             />
           </motion.div>
 
-          {/* Key contacts */}
-          <motion.div
-            className="grid md:grid-cols-2 gap-6 mt-12"
-            {...staggerContainer}
-          >
-            {keyContacts.map((contact) => (
-              <motion.div key={contact.name} {...staggerItem}>
-                <Card className="border border-gray-100">
-                  <div className="flex items-start gap-5">
-                    {/* Avatar */}
-                    <div
-                      className={`shrink-0 w-16 h-16 rounded-full ${contact.color} flex items-center justify-center text-white text-xl font-bold`}
-                    >
-                      {contact.initials}
-                    </div>
-                    <div className="min-w-0">
-                      <Badge variant="info" size="sm" className="mb-2">
-                        {contact.title}
-                      </Badge>
-                      <h3 className="text-lg font-bold text-[#0F1B3D]">
-                        {contact.name}
-                      </h3>
-                      <p className="text-sm text-gray-600 mt-1">{contact.role}</p>
-                      <p className="text-sm font-medium text-[#2563EB] mt-0.5">
-                        {contact.org}
-                      </p>
-                    </div>
+          {/* President spotlight */}
+          <motion.div {...fadeInUp} className="mt-12 mb-12">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+              <div className="flex flex-col md:flex-row items-center gap-8 p-8 md:p-10">
+                {/* President avatar */}
+                <div className="flex-shrink-0">
+                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-[#2563EB]/20 shadow-lg shadow-[#2563EB]/20">
+                    <Image
+                      src="/images/carole-desnost.jpg"
+                      alt={president.name}
+                      width={144}
+                      height={144}
+                      className="object-cover w-full h-full"
+                    />
                   </div>
-                </Card>
-              </motion.div>
-            ))}
+                </div>
+                {/* President info */}
+                <div className="text-center md:text-left flex-1">
+                  <Badge variant="info" size="md" className="mb-3">
+                    {president.role}
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[#0F1B3D] mb-1">
+                    {president.name}
+                  </h3>
+                  <p className="text-base text-gray-600">
+                    {president.subtitle}
+                  </p>
+                  <blockquote className="mt-6 relative pl-5 border-l-4 border-[#2563EB] max-w-lg">
+                    <p className="text-lg italic leading-relaxed text-[#374151]">
+                      &laquo; Le CORIFER va établir une stratégie d&apos;innovation ambitieuse et pilotera
+                      la feuille de route de la filière. &raquo;
+                    </p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Additional governance members */}
-          <motion.div {...fadeInUp} className="mt-10">
-            <h3 className="text-lg font-semibold text-[#0F1B3D] mb-6">
-              Membres du comite de pilotage
+          {/* Secretary */}
+          <motion.div {...fadeInUp} className="mb-12">
+            <div className="flex items-center gap-5 bg-white rounded-xl border border-gray-100 p-5 max-w-md">
+              <div className={`shrink-0 w-14 h-14 rounded-full ${secretary.color} flex items-center justify-center text-white text-lg font-bold`}>
+                {secretary.initials}
+              </div>
+              <div>
+                <Badge variant="purple" size="sm" className="mb-1">
+                  {secretary.role}
+                </Badge>
+                <h4 className="font-bold text-[#0F1B3D]">{secretary.name}</h4>
+                <p className="text-sm text-gray-600">{secretary.subtitle}</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Committees tabs */}
+          <motion.div {...fadeInUp}>
+            <h3 className="text-xl font-bold text-[#0F1B3D] mb-6">
+              Les comités
             </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {governanceMembers.map((member) => (
-                <motion.div key={member.name} {...staggerItem}>
-                  <div className="flex items-center gap-4 rounded-xl bg-white border border-gray-100 p-4 hover:shadow-md transition-shadow">
-                    <div
-                      className={`shrink-0 w-11 h-11 rounded-full ${member.color} flex items-center justify-center text-white text-sm font-bold`}
-                    >
-                      {member.initials}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-[#0F1B3D] text-sm truncate">
-                        {member.name}
-                      </p>
-                      <p className="text-xs text-gray-600 truncate">{member.role}</p>
-                    </div>
-                  </div>
-                </motion.div>
+
+            {/* Tab buttons */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {committees.map((committee) => (
+                <button
+                  key={committee.key}
+                  type="button"
+                  onClick={() => setActiveCommittee(committee.key)}
+                  className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold border transition-all duration-200 ${
+                    activeCommittee === committee.key
+                      ? 'bg-[#0F1B3D] text-white border-[#0F1B3D] shadow-md'
+                      : 'bg-white text-[#0F1B3D]/70 border-gray-200 hover:border-[#0F1B3D]/30 hover:text-[#0F1B3D]'
+                  }`}
+                >
+                  {committee.fullName}
+                </button>
               ))}
             </div>
+
+            {/* Active committee content */}
+            <motion.div
+              key={activeCommittee}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8"
+            >
+              <h4 className="text-xl font-bold text-[#0F1B3D] mb-2">
+                {currentCommittee.fullName}
+              </h4>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                {currentCommittee.description}
+              </p>
+
+              {currentCommittee.presidence && (
+                <div className="mb-4 flex items-start gap-2">
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#2563EB] whitespace-nowrap mt-0.5">
+                    Présidence
+                  </span>
+                  <p className="text-sm text-gray-600">{currentCommittee.presidence}</p>
+                </div>
+              )}
+
+              <div className="mb-6 flex items-start gap-2">
+                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#10B981] whitespace-nowrap mt-0.5">
+                  Fonctionnement
+                </span>
+                <p className="text-sm text-gray-600">{currentCommittee.fonctionnement}</p>
+              </div>
+
+              {/* Members grid */}
+              <div className="mb-4">
+                <h5 className="text-sm font-semibold text-[#0F1B3D] mb-3">
+                  Membres ({currentCommittee.members.length})
+                </h5>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+                  {currentCommittee.members.map((member) => (
+                    <div
+                      key={member.name}
+                      className="flex items-center gap-3 rounded-lg bg-[#F8FAFC] border border-gray-100 px-4 py-3 hover:shadow-sm transition-shadow"
+                    >
+                      <div className="shrink-0 w-8 h-8 rounded-full bg-[#2563EB]/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-[#2563EB]">
+                          {member.name.substring(0, 2).toUpperCase()}
+                        </span>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-semibold text-[#0F1B3D] text-sm truncate">
+                          {member.name}
+                        </p>
+                        {member.org && (
+                          <p className="text-xs text-gray-500 truncate">{member.org}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Invites (if any) */}
+              {currentCommittee.invites && currentCommittee.invites.length > 0 && (
+                <div className="mt-6 pt-4 border-t border-gray-100">
+                  <h5 className="text-sm font-semibold text-[#6B7280] mb-3">
+                    Invités permanents ({currentCommittee.invites.length})
+                  </h5>
+                  <div className="flex flex-wrap gap-3">
+                    {currentCommittee.invites.map((invite) => (
+                      <div
+                        key={invite.name}
+                        className="inline-flex items-center gap-2 rounded-full bg-[#EFF6FF] border border-[#2563EB]/10 px-4 py-2"
+                      >
+                        <span className="text-sm font-medium text-[#2563EB]">
+                          {invite.name}
+                        </span>
+                        {invite.org && (
+                          <span className="text-xs text-[#6B7280]">({invite.org})</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* ========================================
-          Section 4 - Role & Missions
+          Section 4 - Rôle & Missions
           ======================================== */}
       <section id="role-missions" className="section-padding bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <motion.div {...fadeInUp}>
             <SectionTitle
-              title="Role & missions"
-              subtitle="Le CORIFER structure son action autour de quatre missions fondamentales pour accompagner la transformation de la filiere ferroviaire."
+              title="Rôle & missions"
+              subtitle="Le CORIFER structure son action autour de six missions fondamentales pour accompagner la transformation de la filière ferroviaire."
               centered
             />
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12"
             {...staggerContainer}
           >
             {missions.map((mission, index) => {
               const Icon = mission.icon
               return (
-                <motion.div key={mission.title} {...staggerItem}>
+                <motion.div key={index} {...staggerItem}>
                   <div className="group relative rounded-2xl bg-[#F8FAFC] border border-gray-100 p-6 h-full hover:shadow-lg hover:border-[#2563EB]/20 transition-all duration-300">
                     {/* Icon */}
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#06B6D4] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                       <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
                     </div>
                     {/* Number */}
-                    <span className="absolute top-4 right-5 text-5xl font-black text-[#2563EB]/15 leading-none">
+                    <span className="absolute top-4 right-5 text-5xl font-black text-[#2563EB]/10 leading-none">
                       0{index + 1}
                     </span>
                     {/* Content */}
-                    <h3 className="text-xl font-bold text-[#0F1B3D] mb-3" style={{ color: '#111827' }}>
+                    <h3 className="text-base font-bold text-[#0F1B3D] mb-3 leading-snug pr-8" style={{ color: '#111827' }}>
                       {mission.title}
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed" style={{ color: '#4B5563' }}>
@@ -507,106 +573,6 @@ export default function LeCoriferPage() {
               )
             })}
           </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================
-          Section 5 - Les acteurs
-          ======================================== */}
-      <section id="les-acteurs" className="section-padding bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <motion.div {...fadeInUp}>
-            <SectionTitle
-              title="Les acteurs de l'ecosysteme"
-              subtitle="Le CORIFER s'appuie sur un reseau d'acteurs complementaires couvrant l'ensemble de la chaine d'innovation ferroviaire."
-              centered
-            />
-          </motion.div>
-
-          {/* Filter buttons */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-3 mt-10 mb-10"
-            {...fadeInUp}
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                type="button"
-                onClick={() => setActiveFilter(cat.key)}
-                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium border transition-all duration-200 ${
-                  activeFilter === cat.key
-                    ? 'bg-[#0F1B3D] text-white border-[#0F1B3D] shadow-md'
-                    : 'bg-white text-[#0F1B3D]/70 border-gray-200 hover:border-[#0F1B3D]/30 hover:text-[#0F1B3D]'
-                }`}
-              >
-                {cat.key !== 'all' && (() => {
-                  const CatIcon = categoryIcons[cat.key]
-                  return CatIcon ? <CatIcon className="h-4 w-4" /> : null
-                })()}
-                {cat.label}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Actor cards grid */}
-          <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            key={activeFilter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            {filteredActors.map((actor, idx) => {
-              const catMeta = getCategoryMeta(actor.category)
-              const CatIcon = categoryIcons[actor.category]
-              return (
-                <motion.div
-                  key={actor.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                >
-                  <Card className="h-full border border-gray-100 hover:border-[#2563EB]/20 transition-colors">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        {CatIcon && (
-                          <div className="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-gray-100 flex items-center justify-center">
-                            <CatIcon className={`h-5 w-5 ${catMeta.color}`} />
-                          </div>
-                        )}
-                        <h3 className="text-lg font-bold text-[#0F1B3D]">
-                          {actor.name}
-                        </h3>
-                      </div>
-                      <Badge variant={catMeta.badgeVariant} size="sm">
-                        {catMeta.label}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                      {actor.description}
-                    </p>
-                    {actor.url !== '#' && (
-                      <a
-                        href={actor.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#2563EB] hover:text-[#1D4ED8] transition-colors"
-                      >
-                        Visiter le site
-                        <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
-                    )}
-                  </Card>
-                </motion.div>
-              )
-            })}
-          </motion.div>
-
-          {filteredActors.length === 0 && (
-            <div className="text-center py-12 text-gray-600">
-              Aucun acteur dans cette categorie.
-            </div>
-          )}
         </div>
       </section>
     </>

@@ -75,3 +75,46 @@ export async function getCoriferArticleCounts() {
 
   return { evenements, annonces, articles, total: evenements + annonces + articles }
 }
+
+/**
+ * Get team members by committee type (title field).
+ */
+export async function getCoriferTeamMembers(title?: string) {
+  const where: Record<string, unknown> = {}
+  if (title) where.title = title
+  return prisma.coriferTeamMember.findMany({
+    where,
+    orderBy: { order: 'asc' },
+  })
+}
+
+/**
+ * Get featured team members (President, Secretary).
+ */
+export async function getCoriferLeadership() {
+  return prisma.coriferTeamMember.findMany({
+    where: { featured: true },
+    orderBy: { order: 'asc' },
+  })
+}
+
+/**
+ * Get key figures for CORIFER.
+ */
+export async function getCoriferKeyFigures() {
+  return prisma.coriferKeyFigure.findMany({
+    orderBy: { order: 'asc' },
+  })
+}
+
+/**
+ * Get partners/ecosystem actors.
+ */
+export async function getCoriferPartners(category?: string) {
+  const where: Record<string, unknown> = {}
+  if (category) where.category = category
+  return prisma.coriferPartner.findMany({
+    where,
+    orderBy: { order: 'asc' },
+  })
+}
