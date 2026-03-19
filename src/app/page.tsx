@@ -170,8 +170,8 @@ export default function Home() {
           className="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 mt-auto"
         >
           <Image
-            src="/images/hero-inclusive.jpg"
-            alt="Train moderne - Innovation ferroviaire française"
+            src="/images/hero-panoramic.jpg"
+            alt="Train traversant un pont - Innovation ferroviaire française"
             fill
             className="object-cover"
             priority
