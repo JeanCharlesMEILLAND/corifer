@@ -72,8 +72,8 @@ const committees: {
   description: string
   presidence?: string
   fonctionnement: string
-  members: { name: string; org?: string }[]
-  invites?: { name: string; org?: string }[]
+  members: { name: string; org?: string; logo?: string }[]
+  invites?: { name: string; org?: string; logo?: string }[]
 }[] = [
   {
     key: 'copil',
@@ -83,9 +83,9 @@ const committees: {
       'Prépare les évolutions des feuilles de route, assure le suivi macro des projets RDI, promeut les programmes structurants.',
     fonctionnement: '2 réunions par an, décisions à l\'unanimité',
     members: [
-      { name: 'SNCF' },
-      { name: 'RATP' },
-      { name: 'Alstom' },
+      { name: 'SNCF', logo: 'https://www.fif.french4dev.com/assets/adherents/sncf.jpg' },
+      { name: 'RATP', logo: 'https://www.fif.french4dev.com/assets/adherents/ratp.png' },
+      { name: 'Alstom', logo: 'https://www.fif.french4dev.com/assets/adherents/alstom.jpg' },
       { name: 'DGE' },
       { name: 'DGITM' },
       { name: 'DGRI' },
@@ -93,16 +93,16 @@ const committees: {
       { name: 'Bpifrance' },
       { name: 'SNCF Réseau' },
       { name: 'Keolis' },
-      { name: 'Transdev' },
+      { name: 'Transdev', logo: 'https://www.fif.french4dev.com/assets/adherents/transdev.svg' },
       { name: 'FIF' },
       { name: 'UTP' },
       { name: 'EPSF' },
     ],
     invites: [
-      { name: 'Railenium', org: 'IRT' },
-      { name: 'AIF', org: 'Cluster' },
-      { name: 'I-Trans', org: 'Pôle' },
-      { name: 'CARA', org: 'Pôle' },
+      { name: 'Railenium', org: 'IRT', logo: 'https://www.fif.french4dev.com/assets/adherents/railenium.png' },
+      { name: 'AIF', org: 'Cluster', logo: 'https://www.fif.french4dev.com/assets/adherents/aif.jpg' },
+      { name: 'I-Trans', org: 'Pôle', logo: 'https://www.fif.french4dev.com/assets/adherents/i-trans.png' },
+      { name: 'CARA', org: 'Pôle', logo: 'https://www.fif.french4dev.com/assets/adherents/cara.jpg' },
     ],
   },
   {
@@ -114,11 +114,11 @@ const committees: {
     presidence: 'Assurée par le/la Président(e) du COSS de l\'IRT Railenium',
     fonctionnement: '3 à 4 réunions par an',
     members: [
-      { name: 'Alstom' },
-      { name: 'SNCF' },
+      { name: 'Alstom', logo: 'https://www.fif.french4dev.com/assets/adherents/alstom.jpg' },
+      { name: 'SNCF', logo: 'https://www.fif.french4dev.com/assets/adherents/sncf.jpg' },
       { name: 'SNCF Réseau' },
-      { name: 'RATP' },
-      { name: 'Railenium' },
+      { name: 'RATP', logo: 'https://www.fif.french4dev.com/assets/adherents/ratp.png' },
+      { name: 'Railenium', logo: 'https://www.fif.french4dev.com/assets/adherents/railenium.png' },
       { name: 'ADEME' },
       { name: 'Bpifrance' },
       { name: 'DGE' },
@@ -136,7 +136,7 @@ const committees: {
     fonctionnement: '4 réunions par an',
     members: [
       { name: 'FIF (RBC)' },
-      { name: 'AIF' },
+      { name: 'AIF', logo: 'https://www.fif.french4dev.com/assets/adherents/aif.jpg' },
       { name: 'Bpifrance' },
       { name: 'ADEME' },
       { name: 'DGE' },
@@ -485,10 +485,20 @@ export default function LeCoriferPage() {
                       key={member.name}
                       className="flex items-center gap-3 rounded-lg bg-[#F8FAFC] border border-gray-100 px-4 py-3 hover:shadow-sm transition-shadow"
                     >
-                      <div className="shrink-0 w-8 h-8 rounded-full bg-[#2563EB]/10 flex items-center justify-center">
-                        <span className="text-xs font-bold text-[#2563EB]">
-                          {member.name.substring(0, 2).toUpperCase()}
-                        </span>
+                      <div className="shrink-0 w-8 h-8 rounded-full overflow-hidden bg-[#2563EB]/10 flex items-center justify-center">
+                        {member.logo ? (
+                          <Image
+                            src={member.logo}
+                            alt={member.name}
+                            width={32}
+                            height={32}
+                            className="object-contain w-full h-full p-0.5"
+                          />
+                        ) : (
+                          <span className="text-xs font-bold" style={{ color: '#2563EB' }}>
+                            {member.name.substring(0, 2).toUpperCase()}
+                          </span>
+                        )}
                       </div>
                       <div className="min-w-0">
                         <p className="font-semibold text-[#0F1B3D] text-sm truncate">

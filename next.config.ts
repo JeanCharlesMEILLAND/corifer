@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "corifer-*.vercel.app",
       },
+      {
+        protocol: "https",
+        hostname: "www.fif.french4dev.com",
+      },
     ],
   },
 };
